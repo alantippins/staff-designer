@@ -25,20 +25,146 @@ Question-driven spec refinement. Use **before** building to surface interaction 
 
 ---
 
-## Principles Reference
+## Interaction Principles
 
-Before asking questions, understand the Laws of Interface Quality:
+The Laws of Interface Quality — understand these before asking questions.
 
-1. **Reversibility** — Every action should be undoable or recoverable
-2. **Forgiveness** — Software should assume human error and prevent harm
-3. **Persistence** — User work should survive navigation, refresh, failure, and closing
-4. **Transparency** — System state should be visible and understandable at all times
-5. **Escape** — Users should always have a way out of any state
-6. **Consistency** — The same action should work the same way everywhere
-7. **Craft** — The interface should show intentional choices, not defaults
-8. **Recognition** — Show users what they need, don't make them remember
+### Law of Reversibility
 
-See `principles/interaction.md` for full details.
+**Every action should be undoable or recoverable.**
+
+Users will make mistakes. They delete the wrong thing, edit when they meant to view, submit before they're ready. When actions are reversible, users explore freely. When they're not, users hesitate.
+
+**What violation feels like:** "I just deleted that and there's no way to get it back."
+
+| Check | What to Look For |
+|-------|------------------|
+| Delete has safeguard | Confirmation, undo toast, or soft delete (trash) |
+| Bulk actions protected | "Delete all" / "Remove selected" has extra confirmation |
+| State changes reversible | History/undo mechanism for important changes |
+| Archive over delete | Soft delete when permanent removal isn't required |
+
+| Situation | Severity |
+|-----------|----------|
+| No safeguard at all | 🔴 Blocker |
+| Confirmation dialog only (no undo) | 🟡 Warning |
+| Undo toast or soft delete | ✅ Good |
+
+### Law of Forgiveness
+
+**Software should assume human error and prevent harm.**
+
+Users aren't careful. They double-click, fat-finger, paste wrong values, forget to save. Robust software anticipates this and prevents damage rather than punishing mistakes.
+
+**What violation feels like:** "I clicked twice and it charged me twice." "The form rejected my input but won't tell me why."
+
+| Check | What to Look For |
+|-------|------------------|
+| Submit disabled during async | Button disabled while processing |
+| Destructive actions distinct | Delete styled differently than Submit |
+| Input parsing permissive | Accept variations, normalize internally |
+| Forms preserve on error | Don't clear data after API failure |
+
+### Law of Persistence
+
+**User work should survive navigation, refresh, failure, and closing.**
+
+Lost work is the deepest betrayal. Users invest time and attention. When the app loses their work—whether through a bug, a refresh, or accidental navigation—they lose trust permanently.
+
+**What violation feels like:** "I spent 20 minutes on that form and it's gone." "I refreshed and everything reset."
+
+| Check | What to Look For |
+|-------|------------------|
+| Long forms have draft state | localStorage/sessionStorage/autosave |
+| State survives refresh | Not just React state |
+| Failed submissions preserve input | Don't clear form on API error |
+| Unsaved changes warning | `onbeforeunload` or router guards |
+
+### Law of Transparency
+
+**System state should be visible and understandable at all times.**
+
+Users shouldn't have to guess what happened, what's happening, or what will happen. Invisible state creates anxiety and mistrust. Clear feedback builds confidence.
+
+**What violation feels like:** "Did it save?" "Is this loading or broken?" "What does this error mean?"
+
+| Check | What to Look For |
+|-------|------------------|
+| Actions confirm completion | Toast/feedback after async operations |
+| Errors explain what to do | Not just "Error" — what happened and next steps |
+| Pending states visible | Loading indicators, disabled states |
+| Sync status shown | "Saved" / "Saving..." / "Offline" |
+
+### Law of Escape
+
+**Users should always have a way out of any state.**
+
+Trapped users become angry users. Whether it's a modal, a wizard, or a process they started accidentally—there should always be an exit. Forced completions breed resentment.
+
+**What violation feels like:** "I can't close this dialog." "There's no back button." "How do I cancel?"
+
+| Check | What to Look For |
+|-------|------------------|
+| Modals have escape routes | X button, ESC handler, backdrop click |
+| Multi-step flows have back/cancel | Not just "Next" and "Submit" |
+| Browser back works | Proper history management |
+| Onboarding skippable | Skip option available |
+
+### Law of Consistency
+
+**The same action should work the same way everywhere.**
+
+Users build mental models. When a swipe deletes in one place and archives in another, the model breaks. When your app works differently than every other app on the platform, users stumble.
+
+**What violation feels like:** "Wait, why didn't that work?" "This button did something different last time."
+
+| Check | What to Look For |
+|-------|------------------|
+| Platform conventions | iOS patterns on iOS, Android on Android, web standards on web |
+| Internal consistency | Same gesture/action = same result everywhere in the app |
+| Icon meanings | Trash means delete everywhere, not archive in one place |
+| Terminology | Same words for same concepts throughout |
+
+### Law of Craft
+
+**The interface should show intentional design choices, not unexamined defaults.**
+
+Generic interfaces feel cheap. Users notice when something was designed vs. assembled from defaults. Craft isn't about being flashy — it's about every choice being deliberate.
+
+**What violation feels like:** "This looks like a template." "This could be any app."
+
+**Where Defaults Hide:**
+
+| Area | The Trap | Reality |
+|------|----------|---------|
+| Typography | "Pick something readable, move on" | Typography IS your design. The weight of a headline, the personality of a label — these shape feel before anyone reads a word. |
+| Navigation | "Build the sidebar, get to real work" | Navigation IS your product. Where you are, where you can go, what matters most. |
+| Data display | "You have numbers, show numbers" | A number on screen is not design. What does it mean? What will they do with it? |
+| Token names | "Implementation detail" | Your CSS variables are design decisions. `--ink` and `--parchment` evoke a world. `--gray-700` evokes a template. |
+
+### Law of Recognition
+
+**Show users what they need — don't make them remember.**
+
+Memory is unreliable. When users have to remember commands, navigate without landmarks, or recall what they did last time, friction builds. Recognition is easy. Recall is hard.
+
+**What violation feels like:** "Where was that setting?" "What did I name that thing?"
+
+| Check | What to Look For |
+|-------|------------------|
+| Recent items visible | Show what they worked on last |
+| Options discoverable | Common actions visible, not buried in menus |
+| Context preserved | Return to where they left off |
+| Search over navigation | Let users find instead of browse for large sets |
+
+### Related Laws (from Laws of UX)
+
+- **Jakob's Law** — Users expect your app to work like others they've used
+- **Fitts's Law** — Small, far targets are hard to hit (44px minimum touch targets)
+- **Hick's Law** — More choices = slower decisions (one clear primary CTA per view)
+- **Postel's Law** — Be liberal in what you accept, conservative in what you produce
+- **Peak-End Rule** — Experiences are judged by peak and end moments
+- **Doherty Threshold** — Response under 400ms keeps users in flow
 
 ---
 

@@ -17,12 +17,158 @@ Terse PR comments. Actionable findings for code review, not teaching.
 
 ---
 
-## Principles Reference
+## Interaction Principles (Quick Reference)
 
-Before reviewing, know the principles:
+### Law of Reversibility
+**Every action should be undoable or recoverable.**
+- Delete has safeguard (confirmation, undo toast, or soft delete)
+- Bulk actions protected
+- State changes reversible
 
-**Interaction:** See `principles/interaction.md`
-**Visual:** See `principles/visual.md`
+| Situation | Severity |
+|-----------|----------|
+| No safeguard at all | 🔴 Blocker |
+| Confirmation dialog only (no undo) | 🟡 Warning |
+
+### Law of Forgiveness
+**Software should assume human error and prevent harm.**
+- Submit disabled during async
+- Destructive actions styled distinctly
+- Forms preserve on error
+
+### Law of Persistence
+**User work should survive navigation, refresh, failure, and closing.**
+- Long forms have draft state
+- State survives refresh (not just React state)
+- Failed submissions preserve input
+
+### Law of Transparency
+**System state should be visible and understandable at all times.**
+- Actions confirm completion
+- Errors explain what to do
+- Pending states visible
+
+### Law of Escape
+**Users should always have a way out of any state.**
+- Modals have escape routes (X, ESC, backdrop)
+- Multi-step flows have back/cancel
+- Browser back works
+
+### Law of Consistency
+**The same action should work the same way everywhere.**
+- Platform conventions followed
+- Same gesture = same result everywhere
+- Consistent terminology
+
+### Law of Craft
+**The interface should show intentional design choices, not defaults.**
+- Typography intentional
+- Color coherent (tokens, not random hex)
+- Spacing systematic
+- ONE depth strategy (borders OR shadows, not both)
+
+### Law of Recognition
+**Show users what they need — don't make them remember.**
+- Recent items visible
+- Options discoverable
+- Search over navigation for large sets
+
+---
+
+## Visual Principles (Quick Reference)
+
+### States
+
+**Data States:**
+
+| Check | Severity |
+|-------|----------|
+| Loading state exists | 🔴 |
+| Empty state exists | 🔴 |
+| Error state exists | 🔴 |
+| Success feedback | 🟡 |
+
+**Interaction States:**
+
+| Check | Severity |
+|-------|----------|
+| All five states defined (default, hover, active, focus, disabled) | 🔴 |
+| Hover doesn't shift layout | 🟡 |
+| Disabled has explanation | 🟡 |
+| Focus visible without mouse | 🟢 |
+
+### Accessibility
+
+**Critical (🔴):**
+- Accessible names (icon buttons have `aria-label`)
+- Keyboard accessible (Tab reaches everything)
+- No div/span buttons (use `<button>`)
+- Focus trapped in modals
+- Escape closes dialogs
+- Focus restored on close
+
+**High Priority (🟡):**
+- Semantic HTML
+- Form errors linked (`aria-describedby`)
+- Color contrast 4.5:1
+- Live regions for errors
+
+### Typography
+
+| Check | Severity |
+|-------|----------|
+| Four text levels max (primary, secondary, tertiary, muted) | 🟡 |
+| Headings use `text-balance` | 🟡 |
+| Body uses `text-pretty` | 🟡 |
+| Data uses `tabular-nums` | 🟡 |
+| Line length 65-75 chars | 🟢 |
+| Line height 1.5-1.75 for body | 🟢 |
+| Single accent color per view | 🟡 |
+
+### Layout & Structure
+
+| Check | Severity |
+|-------|----------|
+| `h-dvh` not `h-screen` | 🔴 |
+| `safe-area-inset` on fixed elements | 🔴 |
+| Consistent spacing (4px/8px scale) | 🟡 |
+| No layout shift on load | 🟡 |
+
+### Motion
+
+| Check | Severity |
+|-------|----------|
+| `prefers-reduced-motion` respected | 🔴 |
+| Compositor props only (`transform`, `opacity`) | 🔴 |
+| Max 200ms for feedback | 🟡 |
+| No animated layout props | 🔴 |
+
+### Mobile
+
+| Check | Severity |
+|-------|----------|
+| 44x44px minimum touch targets | 🔴 |
+| Thumb zone awareness | 🔴 |
+| No hover-only interactions | 🟡 |
+| Inputs don't zoom on focus (≥16px) | 🟡 |
+
+### Depth Strategy
+
+Pick ONE and commit:
+- Borders-only (clean, technical)
+- Subtle shadows (soft lift)
+- Layered shadows (premium)
+- Surface color shifts (hierarchy without shadows)
+
+**Anti-pattern:** Mixing approaches (borders AND shadows)
+
+### Red Flags
+
+**Visual (🟡):** Harsh borders, dramatic lightness jumps, pure white cards on colored bg, mixed depth strategies
+
+**Structural (🔴/🟡):** Missing interaction states (🔴), missing data states (🔴), inconsistent spacing (🟡)
+
+**Craft (🟡):** Hardcoded hex colors, default fonts, arbitrary spacing values
 
 ---
 

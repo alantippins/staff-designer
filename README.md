@@ -10,12 +10,25 @@ These aren't bugs. They're gaps between "it works in the demo" and "it's ready f
 
 Four skills that surface interaction problems before users find them:
 
-| Skill | When to Use |
-|-------|-------------|
-| `/interface-plan` | Before building — asks the questions that prevent headaches later |
-| `/interface-audit` | Reviewing existing code — explains the *why* behind each finding |
-| `/interface-review` | PR review — terse output, no teaching |
-| `/interface-teach` | Learning — deep explanations of the principles |
+| Skill | When to Use | Output |
+|-------|-------------|--------|
+| `/interface-plan` | Before building | Questions that prevent headaches later |
+| `/interface-audit` | Deep codebase review | Verbose findings with explanations + tiered fixes |
+| `/interface-review` | PR review | One-line comments with file:line references |
+| `/interface-teach` | Learning a principle | Full lesson with examples |
+
+### Audit vs Review — Which One?
+
+Both catch the same issues. The difference is **teaching vs shipping**.
+
+| | **Audit** | **Review** |
+|---|---|---|
+| **When** | Onboarding a codebase, teaching a team, first deep dive | Mid-PR, you know the principles, need the checklist |
+| **Output** | Multi-paragraph findings explaining *why* | One-line flags with file:line |
+| **Fixes** | Tiered (quick/better/best) | Single suggestion |
+| **Tone** | "Here's the principle and why it matters" | "Fix this" |
+
+Use **audit** when you want to learn or teach. Use **review** when verbose = ignored.
 
 ## Install
 
