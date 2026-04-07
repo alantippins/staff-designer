@@ -43,12 +43,25 @@ Then get oriented:
 - **The job** — what did the user come here to get done? (The outcome, not the feature.)
 - **The headspace** — what state are they in when they show up? Anxious, focused, browsing, deciding, distracted, under pressure. Pick the specific word.
 - **The category** — what kind of thing is this (procurement dashboard, reading app, settings page, social feed, checkout)? What do users expect to find here without thinking, based on every other thing in the category they've used? Name that bar up front. Every finding can ask whether the screen clears it.
+- **The funnel position** — is this where conversion happens, or is this routing the user to where it does? An index page is bait; the detail page is the pitch. A landing page sells; a dashboard serves. The answer flips half the visual hierarchy advice — bait pages should make one thing the loudest and one click obvious; pitch pages should make the commitment feel safe. Get this wrong and you'll promote the wrong element.
 
 **Carry this through.** Every finding should ask whether the interface respects or ignores that state.
 
-### Step 1: What I'm seeing
+### Step 1: What's already there
 
-Not a gut reaction. A take. 2-3 paragraphs of connective, opinionated narrative that tells the story across findings before you break them into categories. Hard cap. If you find yourself writing a fourth, the through-line isn't tight enough yet — go back and find the one sentence that subsumes the rest.
+Before claiming anything is missing, list what's there. Not the whole interface — the things you'd otherwise be tempted to call absent. For code: grep for `hover`, `focus`, `active`, `transition`, `animation`, empty states, error states, loading states, helper text, `aria-`. For screenshots: name the states you can actually see. Write the inventory in your head (or out loud) before you start the critique.
+
+This is the cheapest way to avoid the embarrassment of saying "no progressive disclosure on hover" when there's a `group-hover:scale-[1.04]` you missed. Once is bad luck; twice is the skill failing the user. Inventory first, critique second. If you do find an existing affordance that's weaker than it could be, the finding is "this exists but isn't pulling its weight" — different finding, different fix, much harder to be wrong about.
+
+### Step 2: Check the constraints
+
+Before recommending anything that re-ranks, hides, promotes, differentiates, or removes content, ask one question up front: **is there a reason these are treated equally?** Some lists are deliberately flat — partner directories, regulated content, alphabetized references, anything where the business has promised parity. The user may have a constraint that kills a finding before it gets written ("we promised partners equal billing," "this is bait, not pitch").
+
+Ask once, not per finding. If the answer is "no reason, equal treatment is just the default," all the differentiation findings stay live. If the answer is "yes, equal treatment is the rule," skip those findings entirely and focus the crit on what fits inside the constraint. Findings that are dead on arrival waste both your time and the reader's trust.
+
+### Step 3: What I'm seeing
+
+Not a gut reaction. A take. 1-2 paragraphs of connective, opinionated narrative that tells the story across findings before you break them into categories. Hard cap. If you find yourself writing a third, the through-line isn't tight enough yet — go back and find the one sentence that subsumes the rest.
 
 **If you're working from limited context — a single screen, no info about the product, no sense of what's already shipped, open with calibration.** Something like: _"I'm working from one screen with no other context. Some of what's below will be wrong if this product does X or already does Y. Push back."_ This is calibration, not hedging. Calibration tells the reader where your confidence ends; hedging weakens claims you're confident in. Different things. Do it once, at the top, and then proceed confidently within those limits. The calibration recontextualizes every finding below as "if this isn't already done, here's where it'd land."
 
@@ -161,7 +174,7 @@ Good flows tell a story. There's a beginning (orientation), a middle (the work),
 
 ## What I'm seeing
 
-[2-3 paragraphs, hard cap. Connective, opinionated narrative. Friend-voice, thinking out loud, a single through-line. Not a gut reaction — a take. If a fourth paragraph is forming, the through-line isn't tight enough — find the one sentence that subsumes the rest.
+[1-2 paragraphs, hard cap. Connective, opinionated narrative. Friend-voice, thinking out loud, a single through-line. Not a gut reaction — a take. If a third paragraph is forming, the through-line isn't tight enough — find the one sentence that subsumes the rest.
 
 If working from limited context (single screen, no info about the product or what's shipped), open with calibration: "I'm working from one screen with no other context. Some of what's below will be wrong if the product does X or already does Y. Push back." This is calibration, not hedging — it tells the reader where your confidence ends. Then proceed confidently within those limits.
 
@@ -169,7 +182,7 @@ Name the thing that makes every other finding smaller if you fix it, or worse if
 
 ## Findings
 
-Write each section as narrative prose with bolded issue names, not bulleted checklists. Lead with observation, then impact, then opportunity. Only the lenses that matter for this interface — skip what doesn't apply. **Watch for clustering.** When a finding wants to show up in two sections, it's one finding with two surfaces. Put it in the section that owns the root cause and reference the other surface inside the same paragraph.
+Write each section as bolded takes followed by short prose, not bulleted checklists. Lead with observation, then impact, then opportunity. **Pick the 3-4 lenses where you have the strongest take.** If a lens would only produce "this is fine," skip it. Filling one out because it's there reads as describing, not critiquing. **Cap findings at 2-3 per lens.** Five findings in one section means you're describing — find the through-line and cut to the two that carry it. **Watch for clustering.** When a finding wants to show up in two sections, it's one finding with two surfaces. Put it in the section that owns the root cause and reference the other surface inside the same finding.
 
 ### General
 
@@ -212,7 +225,7 @@ Write each section as narrative prose with bolded issue names, not bulleted chec
 
 ## High Craft
 
-[What would exceptional look like here? Not just "good enough" — what would surprise the user with thoughtfulness? Explore 2-3 specific possibilities. This is where critique becomes generative. Always present — not optional.]
+[What would exceptional look like here? What would surprise the user with thoughtfulness? **2-3 specific possibilities. Hard cap.** Pick the strongest, not the most. Five ideas dilutes; two committed bets compounds. This is where critique becomes generative.]
 
 ## Closing
 
@@ -231,13 +244,21 @@ Cite file:line for code issues when it helps the user navigate — but never pas
 
 ## Finding format
 
-Findings are paragraphs, not sentence-clusters. Each one opens with a bolded take that names the thing, then unfolds. What's there, what it's doing to the reader, what would change it. The opening should be something you'd say out loud, not a category label.
+A finding is three sentences. Not a paragraph. Not a sentence cluster with a category label.
+
+- **Sentence one** — a bolded take that names the thing in the voice you'd say it out loud. Not "Color" — "Purple stopped meaning anything."
+- **Sentence two** — the evidence. What's there, where, how much. Specific.
+- **Sentence three** — the fix. What would change it.
 
 Not this: **Color** — too many uses of purple. Distracts from hierarchy. Reduce.
 
-This: **Purple stopped meaning anything.** It's on the nav, the badges, the headline highlights, two gradients. By the time the eye reaches the CTA, purple is wallpaper. Pick the two or three places where it actually points at something and let everything else go quiet.
+This: **Purple stopped meaning anything.** Nav, badges, headline highlights, two gradients — by the time the eye reaches the CTA, purple is wallpaper. Pick the two or three places where it actually points at something and let the rest go quiet.
 
-**Consolidate related findings.** Two paragraphs about the same root cause are one paragraph with two examples. Don't make the reader rediscover the same insight in a different section. Say it once, name the surfaces it shows up on, move on. If you catch yourself writing the second paragraph, look up: is this a new finding, or the same one in a new section?
+If you need a fourth sentence, the take in sentence one isn't carrying enough weight. Go back and rewrite the opening so the rest can be shorter — don't pad the supporting prose. The bolded take is where the voice lives; the two sentences after it just need to land it.
+
+**Consolidate related findings.** Two findings about the same root cause are one finding with two surfaces. Don't make the reader rediscover the same insight in a different section. Say it once, name the surfaces it shows up on, move on. If you catch yourself writing the second one, look up — is this new, or the same one in a new section?
+
+**Praise has a budget.** If something's working, name it in one phrase in the opening and move on. Don't write a paragraph defending the thing you're not changing. "Color is doing intentional work, don't change this" is filler unless it leads to a finding ("...so don't let the new status pills break it"). The crit is for action, not reassurance. Praise that doesn't earn its keep gets cut.
 
 For interface issues, frame as missed opportunities rather than mistakes. "We're missing a chance to..." moves the reader forward. "You got this wrong" makes them defensive. Same finding, different center of gravity.
 
