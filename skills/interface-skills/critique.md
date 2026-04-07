@@ -33,20 +33,25 @@ The principles and lenses apply to both. The output format adapts.
 
 ## Critique Process
 
-### Step 0: Context & Emotional Lens
+### Step 0: Read the room
 
-Before critiquing:
+**Working from a single screenshot with no other context? Ask first.** Before running through the bullets below, post one question: *What is this and what does it do? One sentence is fine.* Then proceed once the user has answered. This is the cheapest way to catch the kind of fundamental misread that no amount of careful looking will fix — the device frame that's actually the product concept, the flat rectangle that's actually a designed button, the "high craft" section that recommends things already shipped. If the input is code, a spec, or a screenshot with context already provided, skip the question and go straight to the bullets.
 
-- **What is this?** — App type, screen purpose, target user
-- **What job is this interface hired to do?** — What outcome is the user seeking? What progress are they trying to make? (Not feature, but outcome.)
-- **What emotional context?** — Stressful? Casual? High-stakes? Routine?
-- **What state is the user likely in?** — Anxious, focused, browsing, deciding?
+Then get oriented:
 
-**Carry this through:** Every finding should consider whether the interface respects or ignores the user's likely emotional state and whether it enables the job they came to do.
+- **The screen** — what does it do, who's it for, where does it sit in the product?
+- **The job** — what did the user come here to get done? (The outcome, not the feature.)
+- **The headspace** — what state are they in when they show up? Anxious, focused, browsing, deciding, distracted, under pressure. Pick the specific word.
 
-### Step 1: First Impressions
+**Carry this through.** Every finding should ask whether the interface respects or ignores that state.
 
-One paragraph. Gut reaction. What's the immediate emotional response this creates? Does it feel overwhelming, uncertain, confident, cluttered, calm? What stands out? What feels off? Be direct.
+### Step 1: What I'm seeing
+
+Not a gut reaction. A take. 2-3 paragraphs of connective, opinionated narrative that tells the story across findings before you break them into categories. Hard cap. If you find yourself writing a fourth, the through-line isn't tight enough yet — go back and find the one sentence that subsumes the rest.
+
+**If you're working from limited context — a single screen, no info about the product, no sense of what's already shipped, open with calibration.** Something like: _"I'm working from one screen with no other context. Some of what's below will be wrong if this product does X or already does Y. Push back."_ This is calibration, not hedging. Calibration tells the reader where your confidence ends; hedging weakens claims you're confident in. Different things. Do it once, at the top, and then proceed confidently within those limits. The calibration recontextualizes every finding below as "if this isn't already done, here's where it'd land."
+
+Then name the through-line. The thing that makes every other finding smaller if it's fixed, or worse if it's ignored. Carry the emotional context through: how this makes the user feel, what state they're coming in with, whether the interface respects that. End on a sentence that sets up the categorical sweep. "the shape is right, here's what's in the way," or "this needs a rethink, not a polish." This is where the friend-voice lives.
 
 ---
 
@@ -56,43 +61,43 @@ These are ways of seeing, not boxes to check. Hold each lens up to the interface
 
 ### General
 
-Start with the basics. Is every element earning its place? Anything that doesn't serve the user's goal is stealing attention from what does. Look for paper cuts — the small irritations that compound: empty space while loading, inconsistent hover states, missing placeholders, spacing that shifts between screens. Then stress-test mentally: what happens with twice the content? Half the content? Longer names? The edge cases reveal whether this was designed or just arranged.
+Is every element earning its place? Anything that doesn't serve the user's goal is stealing attention from what does. Look for paper cuts. The small irritations that compound: empty space while loading, inconsistent hover states, missing placeholders, spacing that shifts between screens. Then stress-test mentally: what happens with twice the content? Half the content? Longer names? The edge cases reveal whether this was designed or just arranged.
 
 ### Visual Composition
 
 Look at the interface as a composition, not a collection of items.
 
-**Color.** Count the distinct colors — not "there's blue" but how many blues, how many grays, how many accents. The number tells you something. Four colors working together is intention; twelve scattered around is fragmentation. Then ask: what's each color's job? Accent should mean action or emphasis. When it also means decoration, it stops meaning anything. Look for the relationships — are colors working as a family (analogous, complementary, monochromatic) or just coexisting?
+**Color.** Count the distinct colors. Not "there's blue" but how many blues, how many grays, how many accents. The number tells you something. Four colors working together is intention; twelve scattered around is fragmentation. What's each color's job? Accent should mean action or emphasis. When it also means decoration, it stops meaning anything. Look for the relationships. Are colors working as a family (analogous, complementary, monochromatic) or just coexisting?
 
-**Type.** List the sizes and weights you see. A clear scale has distinct levels — you can point to the headline, the body, the metadata, the labels. A muddy scale has sizes so close they compete rather than complement. Look for one hero size that establishes importance. If everything's shouting, nothing is. The type stack is the skeleton of hierarchy; if it's not working, nothing else will save it.
+**Type.** List the sizes and weights you see. A clear scale has distinct levels and hierarchy. You can point to the headline, the body, the metadata, the labels. A muddy scale has sizes so close they compete rather than complement. Look for one hero size that establishes importance. If everything's shouting, nothing is. Type is the skeleton of hierarchy. If it's not working, nothing else will save it.
 
-**Depth.** What's the strategy — borders, shadows, surface tints, or flat? The question isn't which one, it's whether there's ONE approach applied consistently. Mixed strategies (shadows here, borders there, tints elsewhere) signal "assembled from different sources." When depth is intentional, elevation communicates hierarchy: modals float above cards, cards float above the base surface. When it's not, things just... sit there.
+**Depth.** What's the strategy here. Borders, shadows, surface tints, or flat? The question isn't which one, it's whether there's ONE approach applied consistently. Mixed strategies (shadows here, borders there, tints elsewhere) signal "assembled from different sources." When depth is intentional, elevation communicates hierarchy: modals float above cards, cards float above the base surface. When it's not, things just... sit there.
 
-**Weight.** The heaviest visual elements — boldest color, largest type, strongest contrast — should match the most important content. This is where intention becomes visible. When a decorative gradient carries more visual weight than the primary action, the hierarchy is lying. Squint at the screen: does importance survive the blur?
+**Weight.** The heaviest visual elements. Boldest color, largest type, strongest contrast — should match the most important content. This is where intention becomes visible. When a decorative gradient carries more visual weight than the primary action, the hierarchy is lying. Squint at the screen: does importance survive the blur?
 
 ### Interface Composition
 
-Now look at the interface as a system of attention and flow.
+Look at the interface as a system of attention and flow.
 
-**Entry point.** Where does your eye land first? There should be ONE clear answer. If you're bouncing between the hero, the sidebar, the nav badges, and an inline CTA, nothing has claimed priority. The best interfaces are ruthless about this — Linear, Stripe, Apple all establish a single focal point and subordinate everything else. What would they do here?
+**Entry point.** Where does your eye land first? Where should the user focus? There should be ONE clear answer. If you're bouncing between the hero, the sidebar, the nav badges, and an inline CTA, nothing has claimed priority. The best interfaces are ruthless about this. Linear, Raycast, Notion all pick one place for your eye to land. What would they do here?
 
 **Density.** Is the amount of information appropriate for the context? A dashboard used daily can be dense — the user builds fluency. An onboarding screen should breathe — the user is orienting. Settings visited monthly should show the common case and hide the advanced. Density isn't good or bad; it's appropriate or not. Match it to expertise level and task frequency.
 
 **Sequence.** If this takes more than one glance, what order do elements reveal themselves? A clear visual path guides the eye: headline → supporting text → action. A muddy path leaves the user to figure out the reading order on their own. Look at how groupings work — do they guide the sequence or interrupt it? Proximity and whitespace are doing choreography whether you intended it or not.
 
-**Dead ends.** Are there elements that don't lead anywhere? Cards with no action, sections that exist but serve no purpose, information displayed with no next step. These are visual cul-de-sacs. Good interfaces always offer progressive disclosure — there's always somewhere to go next. If a user's attention lands on something, it should reward that attention.
+**Dead ends.** Are there elements that don't lead anywhere? Cards with no action, sections that exist but serve no purpose, information displayed with no next step. These are visual cul-de-sacs. Good interfaces offer progressive disclosure — there's always somewhere to go next. If a user's attention lands on something, it should reward that attention.
 
 ### Interaction
 
-This is where the interface becomes a conversation. Does it help the user do their job, or does it make them work around it? Does it speak their language or system language? Can they tell what's clickable? Do they know what state they're in?
+Does the interface help the user do their job, or make them work around it? Does it speak their language or system language? Can they tell what's clickable? Do they know what state they're in?
 
 **The Principles.** These are principles to hold while looking, not boxes to check. See [interaction.md](references/interaction.md) for the full framework. The short version:
 
-- **Reversibility** — Can I undo what I just did? Confident users are users who can recover from mistakes.
+- **Reversibility** — Can I undo what I just did? Confident users can recover from mistakes.
 - **Forgiveness** — Does it prevent errors before they happen? A disabled button during submission, a confirmation before delete.
-- **Persistence** — Does my work survive? Refresh, navigation, network failure, closing the tab. Lost work is the deepest betrayal.
-- **Transparency** — Do I know what's happening? Loading states, success confirmations, error explanations. Silent interfaces breed anxiety.
-- **Escape** — Can I get out? Close the modal, cancel the flow, go back. Trapped users become angry users.
+- **Persistence** — Does my work survive refresh, navigation, network failure, closing the tab?
+- **Transparency** — Do I know what's happening? Loading states, success confirmations, error explanations. Silent interfaces feel broken.
+- **Escape** — Can I get out? Close the modal, cancel the flow, go back.
 - **Consistency** — Does the same action work the same way everywhere? Or do patterns shift without reason?
 - **Craft** — Are these intentional choices or unexamined defaults?
 - **Recognition** — Are options visible, or do I have to remember them?
@@ -103,23 +108,21 @@ Not every principle applies to every interface. A static marketing page doesn't 
 
 ### Craft & Technical
 
-Technical quality that users feel even when they can't name it. This is where you look at states, accessibility, and polish — the craft layer beneath the design.
+Technical quality that users feel even when they can't name it. Look at states, accessibility, and polish — the craft layer beneath the design.
 
 For detailed technical checks, reference [checklists.md](references/checklists.md). The checklist covers interaction states (all five: default, hover, active, focus, disabled), data states (loading, empty, error), accessibility (keyboard navigation, focus visibility, semantics, contrast), motion constraints, and mobile considerations.
 
 The craft lens isn't about checking boxes — it's about noticing whether the interface feels finished or feels like a prototype that shipped too early.
 
-### Consistency & Conventions
+### Coherence
 
-Does the interface feel like one designer made it, or like it was assembled from different kits?
+Does the screen feel like it belongs to the rest of the product, or like it wandered in from somewhere else?
 
-**Pattern consistency.** Are similar actions handled the same way throughout? Delete works like delete everywhere? Modals all close the same way? When patterns shift without reason, users lose trust — they can't predict what will happen next.
+**Inside your own product** — Does this match how the rest of the app already works? Buttons styled the same, modals closed the same, list items treated the same, destructive actions handled the same. When a screen drifts from its own product's patterns, users feel it before they can name it — "this feels like a different app." Monthly visitors especially.
 
-**Platform conventions.** Does it follow established patterns for its platform — iOS, Android, web? Deviations aren't wrong, but they should be intentional improvements, not accidents. Users carry expectations from every other app they use.
+**Against the platform** — iOS, Android, web. Each platform carries muscle memory users bring to every new app. Deviations are fine when they're earned; they're noise when they're accidental. If you're breaking a platform convention, know why.
 
-**Component reuse.** Look for elements that should be the same component but aren't. Two card styles that are almost identical. Buttons that look different in different contexts. List items that change treatment between screens. These inconsistencies signal "no system."
-
-**Visual language cohesion.** Step back and ask: does this feel unified? Same voice, same hand, same intention throughout? Or does it feel like three different designers worked on it without talking?
+**As one hand** — Step back and squint. Does this read as made by one person who knew what they were doing, or assembled from three different sources? Same voice, same hand, same intention — or three designers who never talked.
 
 ### Flow Coherence
 
@@ -141,41 +144,48 @@ Good flows tell a story. There's a beginning (orientation), a middle (the work),
 [1-2 sentences on what this is and who it's for]
 [Name the emotional context: anxious checkout, routine dashboard, exploratory browse, etc.]
 
-## First Impressions
+## What I'm seeing
 
-[1 paragraph. Gut reaction. What's the overall impression? Name the emotion the interface creates — not just "good" or "confusing" but the specific feeling: "quiet confidence," "overwhelming density," "polished but cold." What stands out? What feels off? Be direct and honest, not tentative. This is the "noticing" step — seeing what's actually there, not what you expect to see.]
+[2-3 paragraphs, hard cap. Connective, opinionated narrative. Friend-voice, thinking out loud, a single through-line. Not a gut reaction — a take. If a fourth paragraph is forming, the through-line isn't tight enough — find the one sentence that subsumes the rest.
+
+If working from limited context (single screen, no info about the product or what's shipped), open with calibration: "I'm working from one screen with no other context. Some of what's below will be wrong if the product does X or already does Y. Push back." This is calibration, not hedging — it tells the reader where your confidence ends. Then proceed confidently within those limits.
+
+Name the thing that makes every other finding smaller if you fix it, or worse if you don't. Empathy and state-of-mind observations live here. End on a sentence that sets up the categorical sweep below — "the shape is right, here's what's in the way," or "this needs a rethink, not a polish."]
 
 ## Findings
 
-Write each section as narrative prose with bolded issue names, not bulleted checklists. Lead with observation, then impact, then opportunity.
+Write each section as narrative prose with bolded issue names, not bulleted checklists. Lead with observation, then impact, then opportunity. Only the lenses that matter for this interface — skip what doesn't apply.
+
+### General
+
+[Paper cuts, scale, in-between states, intentionality. What small things are accumulating? What breaks when content gets longer? What's missing between the happy-path states? Is every element earning its place?]
+
+### Interaction
+
+[The Principles, organized as bolded sub-headers. Only the ones that apply. For each, lead with observation, then impact, then opportunity.]
+
+**Reversibility** — [if applicable]
+**Forgiveness** — [if applicable]
+**Persistence** — [if applicable]
+**Transparency** — [if applicable]
+**Escape** — [if applicable]
+**Recognition** — [if applicable]
 
 ### Visual Composition
 
-[Color, type, depth, weight distribution — analyzed as a composition, not a list of items. What's the color story? How does the type scale create hierarchy? Is there one depth strategy or several competing?]
+[Color, type, depth, weight — analyzed as a composition, not a list of items. What's the color story? How does the type scale create hierarchy? Is there one depth strategy or several competing?]
 
 ### Interface Composition
 
 [Entry point, density, sequence, dead ends. Where does the eye land? Is complexity revealed gradually? Are there visual cul-de-sacs?]
 
-### Interaction
-
-[The Principles — but only the ones that matter for this interface. Skip what doesn't apply. For each relevant principle, what's the finding?]
-
 ### Craft
 
 [States, accessibility, polish. The technical quality that users feel even when they can't name it.]
 
-### Consistency & Conventions
+### Coherence
 
-[Pattern consistency, platform conventions, component reuse, visual cohesion. Does it feel like one designer made this?]
-
-### User Context
-
-[Return to empathy. Answer these in prose, not bullets:]
-
-- How does this interface make the user feel? Name the emotion precisely.
-- What is the user's likely state of mind coming into this?
-- Does the interface respect or ignore that state?
+[Inside your own product, against the platform, as one hand. Does this screen belong here?]
 
 ## Top Opportunities
 
@@ -183,21 +193,32 @@ Write each section as narrative prose with bolded issue names, not bulleted chec
 
 ## High Craft
 
-[What would exceptional look like here? Not just "good enough" — what would surprise the user with thoughtfulness? Explore 2-3 specific possibilities. This is where critique becomes generative.]
+[What would exceptional look like here? Not just "good enough" — what would surprise the user with thoughtfulness? Explore 2-3 specific possibilities. This is where critique becomes generative. Always present — not optional.]
 
-[Include file:line for code issues where relevant]
+## Closing
+
+[Two beats: the empathy return, then the pushback invitation.
+
+**Return to the user.** One short paragraph. Name the feeling the interface creates *now*, name the feeling it would create if the top opportunities landed, and the gap between them. This is the bookend — the opening named where the user shows up; the closing names where they end up. Don't restate findings. Stay in the user's head.
+
+**Invite pushback.** One line:
+
+> What did I miss or get wrong?
+
+Cite file:line for code issues when it helps the user navigate — but never paste source code blocks. The finding lives in the prose, not the snippet.]
 ```
 
 ---
 
-## Finding Format
+## Finding format
 
-Frame findings either as:
+Findings are paragraphs, not sentence-clusters. Each one opens with a bolded take that names the thing, then unfolds. What's there, what it's doing to the reader, what would change it. The opening should be something you'd say out loud, not a category label.
 
-- **[Issue]** — [Observation]. [Impact]. [Opportunity].
-- **Missing opportunity:** [What could be better]. [What's there now]. [The gap].
+Not this: **Color** — too many uses of purple. Distracts from hierarchy. Reduce.
 
-For interface design issues, prefer opportunity framing. "We're missing an opportunity to..." feels more actionable than a direct statement of what's wrong.
+This: **Purple stopped meaning anything.** It's on the nav, the badges, the headline highlights, two gradients. By the time the eye reaches the CTA, purple is wallpaper. Pick the two or three places where it actually points at something and let everything else go quiet.
+
+For interface issues, frame as missed opportunities rather than mistakes. "We're missing a chance to..." moves the reader forward. "You got this wrong" makes them defensive. Same finding, different center of gravity.
 
 ---
 
@@ -244,7 +265,7 @@ Work through each principle. Surface what's unaddressed:
 
 **Escape:** Can they cancel at any point? Close modals? Go back in flows?
 
-**Consistency:** Does this work like similar actions elsewhere in the app? Platform conventions?
+**Consistency:** Does this work like similar actions elsewhere in the app? Does it match the platform (iOS, Android, web), or earn the deviation?
 
 **Recognition:** Are options visible or must they remember them?
 
@@ -256,22 +277,27 @@ Work through each principle. Surface what's unaddressed:
 ### Questions
 
 **Intent:**
+
 - [Questions about who/what/feel if unclear]
 
 **Craft:**
+
 - [Decisions that need to be made early]
 
 **Interaction:**
 
 **Reversibility:**
+
 - [Questions about recovery]
 
 **Persistence:**
+
 - [Questions about state survival]
 
 [...etc, only principles that apply]
 
 ### Suggestions
+
 [If you have enough context to suggest answers, offer them as defaults to accept or override]
 ```
 
@@ -281,11 +307,11 @@ Work through each principle. Surface what's unaddressed:
 
 Order findings by impact:
 
-1. **Structural** — Information architecture, missing functionality, wrong mental model
-2. **Behavioral** — How interface responds, flows, communicates
+1. **UX** — Information architecture, missing functionality, wrong mental model
+2. **Interaction** — How interface responds, flows, communicates
 3. **Visual** — Color, type, spacing, shadows
 
-Structural > Behavioral > Visual.
+UX > Interaction > Visual.
 
 ---
 
@@ -339,3 +365,9 @@ Structural > Behavioral > Visual.
 > - Smart defaults that pre-fill based on previous entries or context
 >
 > The current form works. These details would make it _feel_ like someone cared.
+
+---
+
+## Influences
+
+The interaction principles trace back to [Nielsen's 10 Usability Heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/) (1994). Reversibility and Escape from "User control and freedom." Transparency from "Visibility of system status." Forgiveness from "Error prevention." Consistency from "Consistency and standards." Recognition from "Recognition rather than recall." [Laws of UX](https://lawsofux.com/) is the other one worth knowing.
