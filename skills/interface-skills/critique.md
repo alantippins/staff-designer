@@ -182,7 +182,7 @@ Name the thing that makes every other finding smaller if you fix it, or worse if
 
 ## Findings
 
-Write each section as bolded takes followed by short prose, not bulleted checklists. Lead with observation, then impact, then opportunity. **Pick the 3-4 lenses where you have the strongest take.** If a lens would only produce "this is fine," skip it. Filling one out because it's there reads as describing, not critiquing. **Cap findings at 2-3 per lens.** Five findings in one section means you're describing — find the through-line and cut to the two that carry it. **Watch for clustering.** When a finding wants to show up in two sections, it's one finding with two surfaces. Put it in the section that owns the root cause and reference the other surface inside the same finding.
+Write each section as findings in the issue-name format (see Finding format below). Each finding is a bolded neutral noun phrase, then observation, then impact, then opportunity. Not bulleted checklists, not paragraphs of voice. **Pick the 3-4 lenses where you have the strongest material.** If a lens would only produce "this is fine," skip it. Filling one out because it's there reads as describing, not critiquing. **Cap findings at 2-3 per lens.** Five findings in one section means you're describing — find the through-line and cut to the two that carry it. **Watch for clustering.** When a finding wants to show up in two sections, it's one finding with two surfaces. Put it in the section that owns the root cause and reference the other surface inside the same finding.
 
 ### General
 
@@ -244,21 +244,30 @@ Cite file:line for code issues when it helps the user navigate — but never pas
 
 ## Finding format
 
-A finding is three sentences. Not a paragraph. Not a sentence cluster with a category label.
+Lead with a neutral issue name, not a take. The take has to be earned by the observation, not asserted before it. Voice belongs in the opening "What I'm seeing" and the closing — not inside individual findings. Findings are claims about reality, and reality is countable.
 
-- **Sentence one** — a bolded take that names the thing in the voice you'd say it out loud. Not "Color" — "Purple stopped meaning anything."
-- **Sentence two** — the evidence. What's there, where, how much. Specific.
-- **Sentence three** — the fix. What would change it.
+A finding has four beats:
 
-Not this: **Color** — too many uses of purple. Distracts from hierarchy. Reduce.
+- **Issue name** — a bolded noun phrase that names the thing without judging it yet. "Borders below the visibility threshold." "Filter cross-fade." "Fragmented color story." Not "Purple stopped meaning anything" — that's where you end up, not where you start. The neutral name is the gate. You can't write it until you've done the looking, so the format forces evidence first instead of letting voice run ahead.
+- **Observation** — specific and countable. A number, a class string from the JSX, a literal quote from the screen, a count of distinct elements. Something verifiable from one line, not inferred from a field name.
+- **Impact** — what the observation is doing to the user. One sentence.
+- **Opportunity** — what would change it. One sentence.
 
-This: **Purple stopped meaning anything.** Nav, badges, headline highlights, two gradients — by the time the eye reaches the CTA, purple is wallpaper. Pick the two or three places where it actually points at something and let the rest go quiet.
+Three to four sentences total.
 
-If you need a fourth sentence, the take in sentence one isn't carrying enough weight. Go back and rewrite the opening so the rest can be shorter — don't pad the supporting prose. The bolded take is where the voice lives; the two sentences after it just need to land it.
+Not this: **Purple stopped meaning anything.** Nav, badges, headline highlights, two gradients — by the time the eye reaches the CTA, purple is wallpaper. Pick the two or three places where it actually points at something and let the rest go quiet.
+
+This: **Fragmented color story** — 14 distinct uses of purple across the page: navigation icons, card borders, badges, text highlights, gradients. Purple has become noise instead of signal. Pick two or three intentional uses and retire the rest.
+
+The first version reads warmer, but the warmth is pre-asserted — "stopped meaning anything" is the take you arrive at after counting, not before. The second version makes the count load-bearing and lets the impact follow from it. The friend voice still belongs in the crit; it lives in the "What I'm seeing" opening and the closing empathy bookend, where there's nothing to verify. Inside findings, voice obscures countability and seeds confabulation.
+
+**Behavioral findings must be traced, not inferred.** Before claiming the code does X — filters wrong, fires twice, persists nothing, navigates somewhere — read the actual function that does it, top to bottom, and mentally run it with a concrete input. Schema fields and type names are not behavior. If you can't say "tab='water-heaters' → function returns []", you don't have the finding yet, you have a guess. Visual findings get opinion; behavioral findings get a trace.
+
+The general principle: the stronger and tidier a code-based claim feels, the more it needs the trace, because falsifiable findings are the ones that burn trust when they're wrong. A wrong "this feels overwhelming" is a difference of opinion. A wrong "these two pills do the same thing" is a factual error the reader can disprove in five seconds, and it makes them question every other finding in the crit.
 
 **Consolidate related findings.** Two findings about the same root cause are one finding with two surfaces. Don't make the reader rediscover the same insight in a different section. Say it once, name the surfaces it shows up on, move on. If you catch yourself writing the second one, look up — is this new, or the same one in a new section?
 
-**Praise has a budget.** If something's working, name it in one phrase in the opening and move on. Don't write a paragraph defending the thing you're not changing. "Color is doing intentional work, don't change this" is filler unless it leads to a finding ("...so don't let the new status pills break it"). The crit is for action, not reassurance. Praise that doesn't earn its keep gets cut.
+**Praise has a budget.** If something's working, name it in one phrase in the opening and move on. Don't write a paragraph defending the thing you're not changing. "Color is doing intentional work, don't change this" is filler unless it leads to a finding ("...so don't let the new status pills break it"). The crit is for action, not reassurance.
 
 For interface issues, frame as missed opportunities rather than mistakes. "We're missing a chance to..." moves the reader forward. "You got this wrong" makes them defensive. Same finding, different center of gravity.
 
@@ -422,9 +431,9 @@ Structural > Behavioral > Visual.
 >
 > *Coherence:* **Brand drift** — purple appears on so many surfaces that the brand color stops meaning anything specific.
 >
-> Right — one paragraph in the section that owns the root cause:
+> Right — one finding in the section that owns the root cause:
 >
-> *Visual Composition:* **Purple stopped meaning anything** — 14 distinct uses across nav icons, card borders, badges, headline highlights, two gradients. By the time the eye reaches the CTA, purple is wallpaper. Pick the two or three places where it actually points at something and let the rest go quiet. (Same finding shows up downstream as a brand-coherence symptom — same fix.)
+> *Visual Composition:* **Fragmented color story** — 14 distinct uses of purple across nav icons, card borders, badges, headline highlights, two gradients. Purple has stopped meaning anything specific — by the time the eye reaches the CTA, it reads as wallpaper. Pick the two or three places where it actually points at something and retire the rest. (Same finding surfaces downstream as brand drift — same fix.)
 
 **Copy:**
 
