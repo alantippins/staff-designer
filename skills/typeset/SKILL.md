@@ -18,7 +18,7 @@ Review existing typography or plan a system from scratch. Give it code and it re
 | Screenshot     | Read the hierarchy, assess rhythm and signal       |
 | Spec / Brief   | Generate a typography system                       |
 
-Detect from context. If `--plan` is passed, or the input is a brief with no existing typography to review, generate a system. Otherwise, critique what's there.
+Detect from context. If `--plan` is passed, or the input is a brief with no existing typography to review, generate a system. If the input is a screenshot or image, review visually only — no code flags. If the input is code, include code flags. Otherwise, critique what's there.
 
 ---
 
@@ -95,13 +95,15 @@ Mark N/A where a job doesn't apply (e.g. Measure on a one-word label component).
 
 Bands: ≥87% Solid · 68–86% Needs Work · <68% Broken
 
+**Score only what the user experiences.** Visual hierarchy, rhythm, measure, signal as rendered. Code-level issues — token mismatches that haven't diverged, weights used inconsistently in the source — do not affect the score. A screen can look excellent and have code hygiene issues. Score the screen, flag the code separately.
+
 Then:
 
-**Findings** — Prose by job. Bolded issue name. Specific and quantitative. Name the actual sizes, classes, counts.
+**Findings** — Prose by job. Bolded issue name. Specific and quantitative. Name the actual sizes, classes, counts. Visual observations only.
 
-**Code Flags** — (code input only) Specific class names or values to change. See [references/checks.md](references/checks.md).
+**Code Flags** — (code input only) Future risk items: token inconsistencies, missing constraints, off-system values. These don't tank the score — they're advisory. Specific file and line where possible. See [references/checks.md](references/checks.md).
 
-**Top Opportunities** — 3 highest-impact changes, one sentence each, ordered by impact.
+**Top Opportunities** — 3 highest-impact changes, one sentence each, ordered by impact. Visual issues first, code flags second.
 
 ---
 
