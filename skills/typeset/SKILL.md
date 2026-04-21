@@ -52,13 +52,18 @@ For code input, also reference [references/checks.md](references/checks.md) for 
 
 **Findings** — Prose by job. Bolded issue name. Specific and quantitative. Name what's working and what isn't. For every problem, show what great looks like.
 
-**Where this could go** — Three specific directions:
+**Where this could go** — Up to three directions, included only when earned. If the work is already doing its job in that dimension, say so and skip. Two earned directions beat three forced ones. Never manufacture a ceiling to fill a slot.
 
-1. **Font direction** — Is the current typeface a ceiling or a foundation? Name what a personality shift would unlock. Specific: not "try a serif" but "a humanist display type at the heading level would give this the warmth that Inter can't carry — something like DM Serif Display or Fraunces would shift the product from tool to trusted advisor."
+1. **Font direction** — Default to silence. If the product has an established design-system typeface that is loading correctly and doing its job, do not comment on it. Assume the font was chosen. Only include this direction when one of the following is true:
+   - No custom font is loaded and the interface is falling back to a system default (check `tailwind.config`, `globals.css`, or `@font-face` declarations — if you can't find a loaded font, flag it).
+   - The input is a brief or `--plan` run where the system is being designed from scratch.
+   - There is a genuine mismatch between the typeface and what the product needs to do (e.g., expressive consumer product using a utility sans, reading-heavy product using a condensed UI face, marketing hero using the body UI font).
 
-2. **Hierarchy vision** — What would intentional craft look like at scale, with real content under pressure?
+   When it does apply, be specific: not "try a serif" but "a humanist display type at the heading level would give this the warmth that Inter can't carry — something like DM Serif Display or Fraunces." Never suggest swapping an established design-system font as a stylistic preference.
 
-3. **System maturity** — What structural work would make this scale reliably? Naming, tokens, constraints.
+2. **Hierarchy vision** — Include only if hierarchy has room to grow under pressure. What would intentional craft look like at scale, with real content?
+
+3. **System maturity** — Include only if there's structural work that would make this scale reliably. Naming, tokens, constraints, missing components.
 
 **Code Flags** — (code input only) Token inconsistencies, missing constraints, off-system values. Advisory — don't tank the score. See [references/checks.md](references/checks.md).
 

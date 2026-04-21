@@ -12,6 +12,8 @@ Typography has four jobs. Every finding traces back to one.
 
 **Rhythm.** Does the type scale have internal logic? Steps should have a mathematical relationship — a ratio or a defined set — not arbitrary jumps. Line-height should be consistent within context: tighter for headings, more open for body, tightest for labels. Spacing between text blocks should feel like it comes from the same system as the type itself.
 
+Rhythm scores the spacing *inside type groups* — heading → description, label → value, paragraph → paragraph. Spacing between components, cards, or sections is layout, not typography. Flag it if it affects the read, but don't score Rhythm down for it.
+
 **Measure.** Line length determines readability. 65–75 characters is the target for body copy. Shorter feels cramped. Longer forces the eye to track across too much ground. Headings can run shorter. Labels can run longer. The issue is when body copy runs wall-to-wall with no constraint.
 
 **Signal.** Does weight, size, and color reinforce what's semantically important — or contradict it? A bold label competing with a bolder value reads as noise. A large decorative heading visually outranking a smaller primary action inverts the priority. Signal is about whether the visual language matches the semantic hierarchy.
@@ -21,6 +23,8 @@ Typography has four jobs. Every finding traces back to one.
 ## Orient
 
 Before assessing typography, establish the context. This sets the bar — a data tool tolerates tighter measure and smaller type than a content app.
+
+**Verify user-visibility first.** Before anything enters the audit, confirm every screen and component you're about to review is actually reachable by a user in the current build. Feature-flagged, route-gated, permission-gated, or unreleased code does not score and does not appear in findings. If it's worth mentioning at all, it belongs in Code Flags — not in the scored critique.
 
 **Interface type:**
 
@@ -95,6 +99,8 @@ Mark N/A where a job doesn't apply (e.g. Measure on a label component).
 - A 3 on Signal: weight and size track semantic importance. No obvious contradictions.
 
 A 4 requires intentional craft beyond just working — type that would make a typographer notice.
+
+**Match the number to the rubric, not to the length of your findings.** Before writing a score, read the rubric row for that number and check that your finding actually describes it. If your finding reads "works in most places, one or two real issues," that is *Solid — minor gaps* (3), not *Uneven — works in some places, not others* (2). Do not deduct a point just because you have something to say; a 3 is allowed to have findings attached to it. If your finding only praises the work ("exactly correct," "no runaway," "nothing wasted"), write 4, not 3.
 
 **Code flags don't move the score.** Implementation issues (raw HTML, token mismatches, missing constraints) belong in a Code Flags section after the score. They're real and worth fixing — they're just not what the score measures. The score measures what the user experiences.
 
