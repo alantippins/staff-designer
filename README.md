@@ -1,6 +1,6 @@
-# Interface Skills
+# Staff Designer
 
-A suite of two skills for reviewing and improving interface quality. One command installs both.
+A suite of skills for reviewing and improving interface quality. One command installs everything.
 
 ```bash
 npx skills add alantippins/staff-designer
