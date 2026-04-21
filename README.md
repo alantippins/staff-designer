@@ -1,10 +1,17 @@
 # Interface Skills
 
-This skill helps you see and improve interface problems, and suggests what would take your interface to the next level.
+A suite of two skills for reviewing and improving interface quality. One command installs both.
 
 ```bash
 npx skills add alantippins/staff-designer
 ```
+
+| Skill | Command | What it does |
+| ----- | ------- | ------------ |
+| Staff Designer | `/staff-designer` | Holistic interface critique — 8 principles, Design Score, writerly findings |
+| Typeset | `/typeset` | Formal typography audit — four-job scoring, code flags, generative directions |
+
+Staff Designer applies typography analysis inline during every critique. Run `/typeset` when you want the full standalone audit with a score table and code-level flags.
 
 ---
 
@@ -180,6 +187,8 @@ The methodology lives in `critique.md`. Deep-dive references in `references/`:
 ```bash
 npx skills add alantippins/staff-designer
 ```
+
+One command installs the full suite. To install a single skill: `npx skills add alantippins/staff-designer@typeset`
 
 Works with Claude Code, Cursor, Windsurf, and [40+ other agents](https://github.com/vercel-labs/skills).
 
