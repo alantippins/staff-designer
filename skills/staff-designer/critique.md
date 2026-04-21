@@ -64,6 +64,16 @@ If answers unknown: hedge. *"If this doesn't autosave, that's a Persistence gap"
 
 **Placeholder, hidden, and in-flight code cannot produce findings.** A `Math.random()` that's actively being replaced is not a Transparency issue. An emoji logo on a feature-flagged screen is not a Craft issue. These belong in a quick "worth confirming is getting cleaned up" note at most, not in the critique body. A finding names user-visible pain in what would ship today — not pain inferred from code that won't.
 
+**Critique like a staff designer. Ask when you don't have context.**
+
+Don't pre-soften, but don't flag a pattern as a problem when it might be intentional. An overconfident finding on a design decision sends the reader down a wrong fix.
+
+- Concrete bug (broken state, wrong copy, measurable failure, typo) — write it. Direct. Explain the why in plain language — don't assume "measure" or "signal" are shared vocabulary.
+- Pattern that could be a choice (icon style, card weighting, flow order, skip behavior, forced selection) — ask first. One question resolves it. "Are those category icons the shipping set, or placeholders?" "Is the forced selection the product ask?" Beats a paragraph of assumed criticism.
+- Already answered in Step 0 — trust it. Don't re-flag what the user told you is intentional.
+
+The review should match the quality of the work. Clean screen, short review. Broken screen, long review. Don't pad lenses with nothing real.
+
 ### Step 1: First Impressions
 
 One paragraph. Gut reaction. What's the immediate emotional response this creates? Does it feel overwhelming, uncertain, confident, cluttered, calm? What stands out? What feels off? Be direct.
@@ -73,6 +83,8 @@ One paragraph. Gut reaction. What's the immediate emotional response this create
 ## The Lenses
 
 These are ways of seeing, not boxes to check. Hold each lens up to the interface and notice what it reveals. Not every lens applies to every interface — use judgment.
+
+**Match length to what's real.** If a lens has something off, write it. If a lens is working, say what's working in a sentence or two — "the hierarchy holds cleanly across the step, and the eye lands on the title before the grid without competition." Specific praise is useful; it tells the reader what to keep. If a lens truly has nothing to say (doesn't apply to this interface, no signal either way), skip it. The fail mode is padding a clean screen with manufactured concerns until it reads as broken.
 
 ### General
 
@@ -206,7 +218,7 @@ Write each section as narrative prose with bolded issue names, not bulleted chec
 
 ## Top Opportunities
 
-[3-5 highest-impact changes, framed as openings. Each in one sentence, tied to affected principles where relevant.]
+[Highest-impact changes, framed as openings. Each in one sentence, tied to affected principles where relevant. As many as are real — one is fine if one is the real answer, five if there are five. Don't pad to hit a count.]
 
 ## Where this could go next
 
