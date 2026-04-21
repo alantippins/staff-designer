@@ -35,21 +35,25 @@ Calibrate length to input. The full format applies to full artifacts. A screen, 
 
 ## Critique Process
 
-### Step 0: Context & Emotional Lens
+### Step 0: Orient
 
-Before critiquing:
+Before any findings, establish:
 
-- **What stage is this?** Rough exploration, working mockup, or production-close? Calibrate depth — type scale on a wireframe is wasted breath.
-- **What is this?** — App type, screen purpose, target user.
-- **What job is this interface hired to do?** — What outcome is the user seeking? What progress are they trying to make? (Not feature, but outcome.)
-- **What state is the user likely in?** — Describe the user's posture in one sentence. Rushed, bored, anxious, skimming, committing — say it like a person would.
-- **What does getting this wrong cost?** — Dollars, time, trust, safety, reputation. Name the cost explicitly; every finding below should respect it.
+- **What stage is this?** Exploration, in-flight, production-close, shipped. Calibrate depth to stage — type scale on a wireframe is wasted breath, and flagging a placeholder as a shipped bug is worse.
+- **What's already in motion?** Work in progress, known gaps the team is filling, parts of the flow hidden behind flags. Don't flag what's being actively replaced.
+- **What's intentional that might look like a gap?** Cold opens, held-back features, missing onboarding moments — some of these are choices, not oversights. Ask before assuming.
+- **What is this?** App type, screen purpose, target user.
+- **What job is this interface hired to do?** What outcome is the user seeking? (Not feature — outcome.)
+- **What state is the user likely in?** Rushed, bored, anxious, skimming, committing. Say it like a person would.
+- **What does getting this wrong cost?** Dollars, time, trust, safety, reputation. Every finding below should respect this.
+
+**If stage and in-flight context aren't clear from the prompt, ask.** Two or three quick questions up front save a critique that reads as out of touch.
 
 **Carry this through:** Every finding considers whether the interface respects or ignores the user's likely state, whether it enables the job they came to do, and whether the cost of getting it wrong is legible in the interface.
 
 **Confirm what the screen can't show you:**
 
-Static screens lie by omission. Before making factual claims about behavior, confirm these with the caller — or default to conditional framing if you can't:
+Static screens lie by omission. Before making factual claims about behavior, ask — or default to conditional framing:
 
 - Is there a defined brand color or design token system? (Prevents false "color fragmentation" findings.)
 - Does this autosave or preserve state across navigation? (Prevents false "no save" findings.)
@@ -57,6 +61,8 @@ Static screens lie by omission. Before making factual claims about behavior, con
 - What's not on this screen that's part of the flow? (Prevents false "dead end" findings.)
 
 If answers unknown: hedge. *"If this doesn't autosave, that's a Persistence gap"* lands; *"This doesn't autosave"* overclaims.
+
+**Placeholder, hidden, and in-flight code cannot produce findings.** A `Math.random()` that's actively being replaced is not a Transparency issue. An emoji logo on a feature-flagged screen is not a Craft issue. These belong in a quick "worth confirming is getting cleaned up" note at most, not in the critique body. A finding names user-visible pain in what would ship today — not pain inferred from code that won't.
 
 ### Step 1: First Impressions
 
@@ -111,9 +117,7 @@ This is where the interface becomes a conversation. Does it help the user do the
 - **Craft** — Are these intentional choices or unexamined defaults?
 - **Recognition** — Are options visible, or do I have to remember them?
 
-Not every principle applies to every interface. A static marketing page doesn't need Persistence. A checkout flow needs all of them. Use judgment.
-
-**Scoring.** For each principle that applies, score 0-4 using the rubric in [interaction.md](references/interaction.md#scoring). The scores populate the Design Score table at the top of the output. Mark N/A for principles that don't apply (a static marketing page doesn't need Persistence) and adjust the total's denominator accordingly. The narrative finding per principle stays in this section — the score is the handle, the finding is the substance.
+Not every principle applies to every interface. A static marketing page doesn't need Persistence. A checkout flow needs all of them. Use judgment — name the principle only when it's doing real work in the finding. Forcing a line per principle is how the critique turns to filler.
 
 **Motion.** If there's animation, is it earning its place? Motion should clarify, not decorate. And users should never wait for an animation to finish before they can act.
 
@@ -125,9 +129,8 @@ The details that separate "it works" from "someone cared." States, accessibility
 - Orient: what context type is this? What's the primary reading task? Does the font fit the product's personality?
 - Count: distinct sizes, weights, colors
 - Audit each job (Hierarchy, Rhythm, Measure, Signal) — visual impression first, code flags after
-- Score each 0–4 using the rubric in that file
 
-Integrate typography findings into the Craft section prose. Don't produce a separate score table — that's what `/typeset` is for when a formal audit is needed.
+Integrate typography findings into the Craft section prose. For a formal standalone type audit, that's `/typeset`.
 
 For detailed technical checks, reference [checklists.md](references/checklists.md). The checklist covers interaction states (all five: default, hover, active, focus, disabled), data states (loading, empty, error), accessibility (keyboard navigation, focus visibility, semantics, contrast), motion constraints, and mobile considerations.
 
@@ -162,26 +165,7 @@ Good flows tell a story. There's a beginning (orientation), a middle (the work),
 ```markdown
 ## Context
 
-[1-2 sentences on what this is and who it's for. Name the user's state in one human sentence (rushed, anxious, skimming, committing). Name what getting this wrong costs — dollars, time, trust, safety, reputation. The cost line grounds every finding below.]
-
-## Design Score
-
-| # | Principle | Score | Note |
-|---|---|---|---|
-| 1 | Reversibility | ? | [short handle — one line] |
-| 2 | Forgiveness | ? | [short handle] |
-| 3 | Persistence | ? | [short handle] |
-| 4 | Transparency | ? | [short handle] |
-| 5 | Escape | ? | [short handle] |
-| 6 | Consistency | ? | [short handle] |
-| 7 | Craft | ? | [short handle] |
-| 8 | Recognition | ? | [short handle] |
-
-**Total: X / Y — [Band]** (mark N/A where a principle doesn't apply; Y = applicable principles × 4)
-
-Bands: ≥87% **Ship** · 68-86% **Polish** · 44-67% **Problems** · <44% **Blocked**
-
-Scores are interpretive, not measured. Use them for trend-across-iterations, not absolute benchmarks. See [interaction.md](references/interaction.md#scoring) for the rubric.
+[1-2 sentences on what this is and who it's for. Name the stage (exploration / in-flight / production-close / shipped) and anything known to be in motion. Name the user's state in one human sentence (rushed, anxious, skimming, committing). Name what getting this wrong costs — dollars, time, trust, safety, reputation. The cost line grounds every finding below.]
 
 ## First Impressions
 
@@ -201,7 +185,7 @@ Write each section as narrative prose with bolded issue names, not bulleted chec
 
 ### Interaction
 
-[The principles — but only the ones that matter for this interface. For each relevant principle, give the score (0-4) and the finding underneath. Keep the narrative; the scores in the Design Score table above are the handles.]
+[The principles that actually matter for this interface. Name the principle in the finding when it earns the line — "Reversibility is the quiet strength here: the destructive actions all confirm, and undo is one step away." Skip principles that don't apply or don't have anything to say.]
 
 ### Craft
 
@@ -256,7 +240,7 @@ The skill can only see what's in the pixels. When a claim requires knowing somet
 
 The first lands as a question worth answering. The second overclaims. When uncertain, hedge explicitly — Step 0 should have confirmed these where possible, but if it didn't, the finding itself names the conditional.
 
-This matters for scoring too. Don't drop a principle score based on assumed absence. If you can't verify a behavior, either mark N/A or score based on what's visibly honored. A 2 should require actual pain, not assumed pain.
+This matters for severity too. A finding that claims user pain should be able to name where and how. If the pain is inferred from code that won't ship, the finding belongs in the in-flight note, not in the critique body.
 
 ---
 

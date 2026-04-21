@@ -21,7 +21,7 @@ Load [critique.md](critique.md) for the full methodology.
 | Spec / Plan      | Surface unaddressed questions |
 | Multiple screens | Add flow coherence lens       |
 
-Every output opens with a **Design Score** — 8 principles scored 0-4 against the rubric in [references/interaction.md](references/interaction.md#scoring) — followed by the writerly critique. Read the narrative to understand. Scan the score to track across iterations.
+Output is a writerly critique — context, first impressions, findings by lens, user context, top opportunities. Eight interaction principles (Reversibility, Forgiveness, Persistence, Transparency, Escape, Consistency, Craft, Recognition) live in [references/interaction.md](references/interaction.md) as lenses to hold against the work.
 
 ## Modifiers
 
