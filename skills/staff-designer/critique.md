@@ -121,6 +121,14 @@ Not every principle applies to every interface. A static marketing page doesn't 
 
 The details that separate "it works" from "someone cared." States, accessibility, polish — the craft layer beneath the design, plus the paper cuts that add up to an unfinished feel.
 
+**Typography.** Read `references/typography.md` and apply the four-job framework inline:
+- Orient: what context type is this? What's the primary reading task? Does the font fit the product's personality?
+- Count: distinct sizes, weights, colors
+- Audit each job (Hierarchy, Rhythm, Measure, Signal) — visual impression first, code flags after
+- Score each 0–4 using the rubric in that file
+
+Integrate typography findings into the Craft section prose. Don't produce a separate score table — that's what `/typeset` is for when a formal audit is needed.
+
 For detailed technical checks, reference [checklists.md](references/checklists.md). The checklist covers interaction states (all five: default, hover, active, focus, disabled), data states (loading, empty, error), accessibility (keyboard navigation, focus visibility, semantics, contrast), motion constraints, and mobile considerations.
 
 The craft lens isn't about checking boxes — it's about noticing whether the interface feels finished or feels like a prototype that shipped too early.

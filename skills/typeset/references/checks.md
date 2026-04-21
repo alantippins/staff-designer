@@ -84,3 +84,51 @@ Numbers in tables or data displays without `tabular-nums` — digits don't align
 
 **Missing font-feature-settings for ligatures**
 Long-form reading contexts without `font-feature-settings: "liga" 1` where the typeface supports it. Minor, but part of craft.
+
+---
+
+## Hard Stops
+
+These aren't edge cases — they're the decisions that make a type system untrustworthy. Each one is recoverable, but only with a full audit.
+
+**Too many families.** Three font families is the ceiling, and most products don't need more than one or two. Every additional family is a relationship you have to manage: pairing contrast, weight equivalence, size matching. The complexity compounds fast.
+
+**Arbitrary sizes.** A size that isn't on the scale isn't a decision — it's a gap in the system. The next person who needs something "between" those two sizes will add another arbitrary value, and the scale collapses.
+
+**Body text below 16px.** Below 1rem, you're not setting type for your users — you're setting it for users with perfect vision in ideal lighting. Use rem, not px. Respect the browser's font size setting.
+
+**Display fonts in body.** A font chosen for personality at 48px falls apart at 16px. Display and text fonts solve different problems at different sizes.
+
+**Too many weights.** Four weights (Regular, Medium, Semibold, Bold) is the full working set. Loading a fifth weight adds page weight and tempts misuse. If you can't solve the problem with four, the problem is hierarchy, not weights.
+
+**Pairing fonts that are almost the same.** Two geometric sans-serifs, two humanists — the pairing reads as inconsistency, not intention. Pair for contrast: a serif with a sans, a condensed with a regular, a high-contrast with a low-contrast.
+
+**Defaulting on font choice.** Inter is not a design decision. Neither is Roboto. They're placeholders. Using them is fine when the interface is the product. When the brand needs personality, the typeface is the first place to build it.
+
+---
+
+## Whether It's Working
+
+These questions reveal whether the system holds, not just whether it was defined.
+
+**Does hierarchy read without color?** Cover the screen and remove color mentally. Can you still rank elements by importance? If hierarchy only works because blue means "important," it breaks in grayscale, in low vision, in screenshots.
+
+**Does weight track what matters?** The heaviest weight on screen should be on the most important content. If something decorative or structural is bolder than the primary action or value, the signal is inverted.
+
+**Do same-role elements look the same?** Every label, every body paragraph, every heading at the same level — if they're visually identical, the system is working. If you can tell which component built them, it isn't.
+
+**Does the type fit the product?** If you swapped in a generic system font, would the product feel different? If the answer is no, the type choice wasn't a decision.
+
+---
+
+## Reference Values
+
+These are defaults worth reaching for, not rules worth defending.
+
+**Scale:** 5 levels cover most products — caption, secondary, body, subheading, heading. Ratio: 1.25 for dense tools and apps, 1.333 when headings need more presence, 1.5 for expressive or marketing contexts. App UIs want a fixed rem-based scale — fluid sizing (`clamp()`) makes sense for marketing headings, not for interface labels.
+
+**Measure:** `max-width: 65ch` on body containers. Below 45ch lines break too often. Above 80ch the eye loses the return. Labels and headings don't need measure constraints — paragraphs do.
+
+**Line-height:** 1.1–1.2 on headings (tight reads as confident). 1.5–1.7 on body (open reads as readable). Go slightly looser on light-on-dark — dark backgrounds compress apparent spacing.
+
+**Details that compound:** `tabular-nums` on any number that shares a column with another number. Letter-spacing slightly open on uppercase and small caps, tight-to-default on display. Token names that mean something (`--text-body`, not `--font-16`) — the name is the contract.

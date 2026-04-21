@@ -27,6 +27,14 @@ Every output opens with a **Design Score** — 8 principles scored 0-4 against t
 
 `--teach` — Add principle explanations to findings
 
+## Capabilities
+
+Staff Designer's depth grows as skills are added. Each installed skill contributes a methodology file to `references/` — staff-designer reads it inline during the relevant section of the critique.
+
+**Typography** — installed. Four-job framework (Hierarchy, Rhythm, Measure, Signal) applied inline in the Craft section. Methodology: `references/typography.md`. For a formal standalone audit with score table and code flags, run `/typeset`.
+
+*Install the full suite together. Skills share methodology — they're designed to work as a set.*
+
 ## Foundation
 
 - [references/interaction.md](references/interaction.md) — Principles of interface quality

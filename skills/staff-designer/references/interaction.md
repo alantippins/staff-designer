@@ -166,7 +166,7 @@ Defaults don't announce themselves. They disguise themselves as infrastructure �
 
 | Area | The Trap | Reality |
 |------|----------|---------|
-| **Typography** | "Pick something readable, move on" | Typography IS your design. The weight of a headline, the personality of a label — these shape feel before anyone reads a word. |
+| **Typography** | "Pick something readable, move on" | Typography is the foundation of interface design. It carries the majority of information. When it's wrong, the whole interface reads as wrong regardless of execution quality elsewhere — it's the highest-leverage fix. Assess: font fit (does the typeface match the product's register?), hierarchy (four distinct levels without color?), signal (does weight track semantic importance?). For deep analysis, delegate to `/typeset`. |
 | **Navigation** | "Build the sidebar, get to real work" | Navigation IS your product. Where you are, where you can go, what matters most. A screen floating in space is a component demo, not software. |
 | **Data display** | "You have numbers, show numbers" | A number on screen is not design. What does it mean? What will they do with it? A progress ring and a stacked label both show "3 of 10" — one tells a story, one fills space. |
 | **Token names** | "Implementation detail" | Your CSS variables are design decisions. `--ink` and `--parchment` evoke a world. `--gray-700` and `--surface-2` evoke a template. |

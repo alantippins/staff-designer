@@ -1,6 +1,6 @@
 ---
 name: typeset
-description: "Typography review and planning. Works on code, screenshots, or briefs."
+description: "Formal typography audit. Works on code, screenshots, or briefs."
 argument-hint: "[--plan]"
 ---
 
@@ -8,78 +8,33 @@ argument-hint: "[--plan]"
 
 By Alan Tippins
 
-Review existing typography or plan a system from scratch. Give it code and it reads the classes. Give it a screenshot and it reads the hierarchy. Give it a brief and it builds the system.
+Formal typography audit with four-job scoring, code flags, and generative directions. Install alongside staff-designer — they share a methodology.
 
 ## How It Works
 
 | Input          | Output                                             |
 | -------------- | -------------------------------------------------- |
-| Code           | Audit classes, catch inconsistencies, flag magic numbers |
-| Screenshot     | Read the hierarchy, assess rhythm and signal       |
+| Code           | Four-job score, code flags, top opportunities      |
+| Screenshot     | Four-job score, visual findings, directions        |
 | Spec / Brief   | Generate a typography system                       |
 
-Detect from context. If `--plan` is passed, or the input is a brief with no existing typography to review, generate a system. If the input is a screenshot or image, review visually only — no code flags. If the input is code, include code flags. Otherwise, critique what's there.
+Detect from context. If `--plan` is passed, or the input is a brief with no existing typography to review, generate a system. If the input is a screenshot or image, review visually — no code flags. Otherwise, run the full audit.
 
 ---
 
-## The Four Jobs
+## Methodology
 
-Typography has four jobs. Every finding traces back to one.
+The four-job framework lives in staff-designer. Load it before proceeding:
 
-**Hierarchy.** Can you identify four distinct levels — primary, secondary, tertiary, muted — without relying on color? Count the distinct sizes. Count the distinct weights. If everything lands at one or two levels, there's no scale. If there are six levels that look nearly identical, there's no hierarchy either.
+→ Read `~/.claude/skills/staff-designer/references/typography.md`
 
-**Rhythm.** Does the type scale have internal logic? Steps should have a mathematical relationship — a ratio or a defined set — not arbitrary jumps. Line-height should be consistent within context: tighter for headings, more open for body, tightest for labels. Spacing between text blocks should feel like it comes from the same system as the type itself.
+Apply the Orient → Count → Audit → Score sequence from that file.
 
-**Measure.** Line length determines readability. 65–75 characters is the target for body copy. Shorter feels cramped. Longer forces the eye to track across too much ground. Headings can run shorter. Labels can run longer. The issue is when body copy runs wall-to-wall with no constraint.
-
-**Signal.** Does weight, size, and color reinforce what's semantically important — or contradict it? A bold label competing with a bolder value reads as noise. A large decorative heading visually outranking a smaller primary action inverts the priority. Signal is about whether the visual language matches the semantic hierarchy.
+For code input, also reference [references/checks.md](references/checks.md) for implementation-level flags.
 
 ---
 
-## Review Methodology
-
-### Step 0: Orient
-
-Before critiquing, establish:
-- What kind of interface is this? (data-dense tool, marketing page, onboarding flow, content reading)
-- What's the primary reading task? (scan, read, fill in, decide)
-
-This sets the bar. A data table tolerates tighter measure and smaller type than a long-form article.
-
-### Step 1: Count
-
-Before judging, count:
-- How many distinct font sizes are used?
-- How many distinct weights?
-- How many distinct text colors?
-
-State the counts. "6 sizes, 2 weights, 4 colors" gives you the raw material for the critique. Counts prevent vague claims.
-
-### Step 2: Audit by Job
-
-Run each of the four jobs. For each finding, state: what you see, why it matters, what it could be instead.
-
-**Reviewing code** — read the actual classes. See [references/checks.md](references/checks.md) for patterns to flag.
-
-**Reviewing a screenshot** — read the visual hierarchy. Does the squint test pass? (Blur your vision — can you still identify 4 levels?) Is the measure constrained? Does weight track importance?
-
-### Step 3: Score
-
-Score each job 0–4:
-
-| Score | Meaning |
-| ----- | ------- |
-| 0 | Broken — job isn't being done |
-| 1 | At risk — partially addressed, breaks under real content |
-| 2 | Uneven — works in some places, not others |
-| 3 | Solid — job is done, minor gaps |
-| 4 | Elevated — intentional craft, nothing wasted |
-
-Mark N/A where a job doesn't apply (e.g. Measure on a one-word label component).
-
----
-
-## Review Output
+## Audit Output
 
 ```
 ## Typography Score
@@ -93,17 +48,21 @@ Mark N/A where a job doesn't apply (e.g. Measure on a one-word label component).
 | **Total** | /16   | Band |
 ```
 
-Bands: ≥87% Solid · 68–86% Needs Work · <68% Broken
+**Score only what the user experiences.** Token mismatches that currently render correctly, off-system class names that produce the right visual output — none of these move the score. Score the screen, flag the code separately.
 
-**Score only what the user experiences.** Visual hierarchy, rhythm, measure, signal as rendered. Code-level issues — token mismatches that haven't diverged, weights used inconsistently in the source — do not affect the score. A screen can look excellent and have code hygiene issues. Score the screen, flag the code separately.
+**Findings** — Prose by job. Bolded issue name. Specific and quantitative. Name what's working and what isn't. For every problem, show what great looks like.
 
-Then:
+**Where this could go** — Three specific directions:
 
-**Findings** — Prose by job. Bolded issue name. Specific and quantitative. Name the actual sizes, classes, counts. Visual observations only.
+1. **Font direction** — Is the current typeface a ceiling or a foundation? Name what a personality shift would unlock. Specific: not "try a serif" but "a humanist display type at the heading level would give this the warmth that Inter can't carry — something like DM Serif Display or Fraunces would shift the product from tool to trusted advisor."
 
-**Code Flags** — (code input only) Future risk items: token inconsistencies, missing constraints, off-system values. These don't tank the score — they're advisory. Specific file and line where possible. See [references/checks.md](references/checks.md).
+2. **Hierarchy vision** — What would intentional craft look like at scale, with real content under pressure?
 
-**Top Opportunities** — 3 highest-impact changes, one sentence each, ordered by impact. Visual issues first, code flags second.
+3. **System maturity** — What structural work would make this scale reliably? Naming, tokens, constraints.
+
+**Code Flags** — (code input only) Token inconsistencies, missing constraints, off-system values. Advisory — don't tank the score. See [references/checks.md](references/checks.md).
+
+**Top Opportunities** — 3 highest-impact changes, one sentence each. Visual issues first, code flags second.
 
 ---
 
@@ -111,14 +70,19 @@ Then:
 
 When `--plan` is passed or the input is a brief:
 
-1. **Identify the reading context** — What's the primary interface type? This determines base size and density.
-2. **Set the scale** — Choose a base size and ratio. Modular scale (1.25 Minor Third, 1.333 Perfect Fourth, 1.5 Perfect Fifth) for expressive UIs. Custom increments (12/14/16/20/24/32) for dense tools.
-3. **Map hierarchy** — Assign scale steps to the four levels. Name them semantically, not by size.
-4. **Set rhythm** — Line-height per context. Spacing relationships.
-5. **Define measure** — Max-width for body. Constraints for narrow columns.
-6. **Write signal rules** — How weight, size, and color map to importance for this system specifically.
+1. **Identify the reading context** — Use the context table from the typography methodology to set defaults.
+2. **Choose base size** — 13–14px for data tools. 15–16px for apps. 16–18px for reading-heavy products. 18–22px for display-first marketing.
+3. **Set the scale** — Choose a ratio:
+   - Dense tools: custom increments (12/14/16/20/24)
+   - Apps and task flows: 1.25 (Minor Third)
+   - Reading products: 1.333 (Perfect Fourth)
+   - Expressive / marketing: 1.5 (Perfect Fifth) or higher
+4. **Map hierarchy** — Assign scale steps to the four levels. Name them semantically.
+5. **Set rhythm** — Line-height per context. Spacing relationships.
+6. **Define measure** — Max-width for body. Constraints for narrow columns.
+7. **Write signal rules** — How weight, size, and color map to importance for this system.
 
-Make decisions. State the ratio, state the base, state why it fits the context. A confident recommendation is more useful than a list of options.
+Make decisions. State the ratio, state the base, state why it fits the context.
 
 ---
 
@@ -156,7 +120,7 @@ Use text-balance on headings. Use text-pretty on body.
 Use tabular-nums on numeric data.
 
 ## Signal Rules
-[How weight, size, and color reinforce semantic importance for this specific system]
+[How weight, size, and color reinforce semantic importance for this system]
 
 ## Tailwind / CSS
 [Concrete implementation — classes or custom properties, ready to copy]
@@ -166,16 +130,16 @@ Use tabular-nums on numeric data.
 
 ## Voice
 
-Same posture as staff-designer — direct, specific, quantitative. Name the actual sizes. Count the distinct levels. Quote the class names.
+Same posture as staff-designer — direct, specific, quantitative, but oriented toward the upside. Typeset is the typography depth layer: it goes where staff-designer's Craft principle points but doesn't follow.
 
-"There are six uses of `text-sm` across this component: three are labels, two are body copy, one is an error message. No weight or color distinction separates them. The hierarchy is invisible." That's a finding.
+Name what's actually there before naming what's wrong. Frame findings as what the typography could be doing, not just what it isn't. "The description text sits at the same weight and line-height as the label above it — one level is doing two jobs, and the user has to work harder to parse the card" is a finding. "The hierarchy is unclear" is not.
 
-"The hierarchy is unclear" is not.
+Show what great looks like. After naming a problem, describe the better version specifically. Not "increase line-height on descriptions" — "giving descriptions a looser line-height would let them breathe as supporting copy instead of competing with the label for attention."
 
-For plan mode: make decisions, don't present options. "Use a 1.333 ratio — Perfect Fourth — because this is a reading-heavy product and the intervals give headings enough presence without needing large sizes" is useful. A table of five ratios asking the user to choose is not.
+For plan mode: make decisions. "Use a 1.333 ratio — Perfect Fourth — because this is a reading-heavy product and the intervals give headings enough presence without needing large sizes" is useful. A table of options asking the user to choose is not.
 
 ---
 
 ## Foundation
 
-- [references/checks.md](references/checks.md) — Code patterns to flag when reviewing
+- [references/checks.md](references/checks.md) — Implementation-level patterns to flag when reviewing code
