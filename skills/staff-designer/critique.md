@@ -125,7 +125,7 @@ For detailed technical checks, reference [checklists.md](references/checklists.m
 
 The craft lens isn't about checking boxes — it's about noticing whether the interface feels finished or feels like a prototype that shipped too early.
 
-### Consistency & Conventions
+### Consistency
 
 Does the interface feel like one designer made it, or like it was assembled from different kits?
 
@@ -199,7 +199,7 @@ Write each section as narrative prose with bolded issue names, not bulleted chec
 
 [States, accessibility, polish. The details that separate "it works" from "someone cared." Paper cuts — the small compounding issues (hover inconsistencies, redundant captions, UI debris) — live here.]
 
-### Consistency & Conventions
+### Consistency
 
 [Pattern consistency, platform conventions, component reuse, visual cohesion. Does it feel like one designer made this, or like it was assembled from different kits?]
 

@@ -1,10 +1,10 @@
 ---
-name: interface-skills
+name: staff-designer
 description: "Surface interface quality concerns. Works on code, screenshots, specs, or plans."
 argument-hint: "[--teach]"
 ---
 
-# Interface Skills
+# Staff Designer
 
 By Alan Tippins
 

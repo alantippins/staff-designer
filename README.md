@@ -3,7 +3,7 @@
 This skill helps you see and improve interface problems, and suggests what would take your interface to the next level.
 
 ```bash
-npx skills add alantippins/interface-skills
+npx skills add alantippins/staff-designer
 ```
 
 ---
@@ -26,7 +26,7 @@ Give it anything. It adapts.
 | Multiple screens | Add flow coherence            |
 
 ```
-/interface-skills
+/staff-designer
 ```
 
 No modes to remember. Just run it against whatever you're working on.
@@ -80,7 +80,7 @@ Different ways of seeing the same interface. Not every lens applies to every scr
 ### On Code
 
 ```
-> /interface-skills src/components/Settings.tsx
+> /staff-designer src/components/Settings.tsx
 
 ## Context
 Settings page for a B2B SaaS product. Users visit monthly, not daily.
@@ -112,7 +112,7 @@ clicks a link in the sidebar to check something, comes back — fields empty.
 ### On a Plan
 
 ```
-> /interface-skills [run against your Claude Code plan]
+> /staff-designer [run against your Claude Code plan]
 
 ## Delete Button
 
@@ -178,7 +178,7 @@ The methodology lives in `critique.md`. Deep-dive references in `references/`:
 ## Install
 
 ```bash
-npx skills add alantippins/interface-skills
+npx skills add alantippins/staff-designer
 ```
 
 Works with Claude Code, Cursor, Windsurf, and [40+ other agents](https://github.com/vercel-labs/skills).
