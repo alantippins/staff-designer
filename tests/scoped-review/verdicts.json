@@ -1,0 +1,42 @@
+{
+  "clean_reference": {
+    "baseline": "PASS with grounded priority/label suggestions",
+    "candidate": "PASS with grounded preview-context and mobile-placement suggestions",
+    "no_unfounded_palette_depth_hierarchy_blocker": true
+  },
+  "flawed_design": {
+    "baseline_detected": [
+      "mobile overflow",
+      "non-keyboard div action",
+      "owner hidden by filter",
+      "low contrast export"
+    ],
+    "candidate_detected": [
+      "mobile overflow",
+      "non-keyboard div action",
+      "owner hidden by filter",
+      "low contrast export"
+    ],
+    "additional_valid_finding_both": "reply preview is only a status message"
+  },
+  "plan": {
+    "baseline_detected": [
+      "persistence contradiction",
+      "premature assigned status",
+      "duplicate submissions"
+    ],
+    "candidate_detected": [
+      "persistence contradiction",
+      "premature assigned status",
+      "duplicate submissions"
+    ],
+    "no_invented_visual_measurements": true
+  },
+  "limit": "One independent review per version/case. No statistical reliability claim; no demonstrated overall critique-quality superiority. Original clean fixture was rejected and retained, not counted as a false-positive failure.",
+  "comparison": "v1 baseline versus final v3; original v2 matrix retained in verdicts-v2.json",
+  "all_nine_valid_runs": {
+    "numeric_design_score": false,
+    "unrequested_product_pivot": false,
+    "routine_mandatory_review_chain": false
+  }
+}

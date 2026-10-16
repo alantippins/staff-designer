@@ -17,6 +17,8 @@ Surface interface quality concerns. Works on anything: code, screenshots, specs,
 
 The principles and lenses apply to both. The output format adapts.
 
+Keep agent-initiated extra review passes proportional to the task. Run review skills the user explicitly requests, even when their fit is not obvious; do not substitute your preferred tool. Structural or meaning changes may warrant a final voice check without making every critique a fixed chain of skills.
+
 Calibrate length to input. The full format applies to full artifacts. A screen, a flow, a page. For a single component or a narrow question ("thoughts on this button?"), collapse to what's useful: First Impressions + relevant lens + Top Opportunity. The structure scales down. A 1500-word critique on a 200-pixel button is its own kind of bad design.
 
 ---
@@ -88,17 +90,19 @@ These are ways of seeing, not boxes to check. Hold each lens up to the interface
 
 ### General
 
+For a layout-stability issue, inspect the relevant state changes and conditional rows before attributing a height change to text wrapping. Compare representative rendered states when available. A screenshot alone cannot establish which content mounts or disappears. For a contested gap or size, separate occupied content, reserved slots and flexible space; explain what can actually move before proposing a change.
+
 Start with the basics. Is every element earning its place? Anything that doesn't serve the user's goal is stealing attention from what does. Look for paper cuts — the small irritations that compound: empty space while loading, inconsistent hover states, missing placeholders, spacing that shifts between screens. Then stress-test mentally: what happens with twice the content? Half the content? Longer names? The edge cases reveal whether this was designed or just arranged.
 
 ### Visual Composition
 
 Look at the interface as a composition, not a collection of items.
 
-**Color.** Count the distinct colors — not "there's blue" but how many blues, how many grays, how many accents. The number tells you something. Four colors working together is intention; twelve scattered around is fragmentation. Then ask: what's each color's job? Accent should mean action or emphasis. When it also means decoration, it stops meaning anything. Look for the relationships — are colors working as a family (analogous, complementary, monochromatic) or just coexisting?
+**Color.** Identify each color's role and whether the visual weight matches it. Review semantic colors at actual component size and across the supported palettes and relevant states before prescribing a global change. A small accent can behave differently as a large filled button. Preserve intentional palette variation; a color count or decorative use alone does not establish a problem.
 
 **Type.** List the sizes and weights you see. A clear scale has distinct levels — you can point to the headline, the body, the metadata, the labels. A muddy scale has sizes so close they compete rather than complement. Look for one hero size that establishes importance. If everything's shouting, nothing is. The type stack is the skeleton of hierarchy; if it's not working, nothing else will save it.
 
-**Depth.** What's the strategy — borders, shadows, surface tints, or flat? The question isn't which one, it's whether there's ONE approach applied consistently. Mixed strategies (shadows here, borders there, tints elsewhere) signal "assembled from different sources." When depth is intentional, elevation communicates hierarchy: modals float above cards, cards float above the base surface. When it's not, things just... sit there.
+**Depth.** Do borders, shadows and surface tints communicate a coherent hierarchy? Different treatments may serve different roles, such as bordered panels and a floating popover. Flag a mismatch when it obscures grouping, layering or interaction; mixing techniques alone is not a defect.
 
 **Weight.** The heaviest visual elements — boldest color, largest type, strongest contrast — should match the most important content. This is where intention becomes visible. When a decorative gradient carries more visual weight than the primary action, the hierarchy is lying. Squint at the screen: does importance survive the blur?
 
@@ -152,6 +156,8 @@ The craft lens isn't about checking boxes — it's about noticing whether the in
 
 Does the interface feel like one designer made it, or like it was assembled from different kits?
 
+When adopting a component library into an existing product, inventory the real controls, required states and visual language first. Keep useful shared behavior while adapting defaults. Additional variants should serve existing needs or the approved brief; a library's full catalog is not itself a product requirement.
+
 **Pattern consistency.** Are similar actions handled the same way throughout? Delete works like delete everywhere? Modals all close the same way? When patterns shift without reason, users lose trust — they can't predict what will happen next.
 
 **Platform conventions.** Does it follow established patterns for its platform — iOS, Android, web? Deviations aren't wrong, but they should be intentional improvements, not accidents. Users carry expectations from every other app they use.
@@ -163,6 +169,10 @@ Does the interface feel like one designer made it, or like it was assembled from
 ### Flow Coherence
 
 _This lens applies when reviewing multiple screens or a sequence._
+
+For an embedded demo, inspect both the demo at a readable scale and its placement in the host page at relevant supported widths. Check surrounding navigation, nested scrolling and reachability. Name missing visual evidence when only source or one capture is available; do not claim the other scale was verified.
+
+For a portfolio flow, identify each screen's job, product decision and supporting evidence for the agreed audience before polishing the sequence. Preserve useful breadth. Do not infer authorship or shipped status from the pixels, or force a fixed set of career roles onto the work.
 
 Flows have their own logic. Do the screens connect naturally — is the path obvious, or does the user have to figure out where they are? Does data persist across steps, or do they re-enter information? Do they know where they are in the process (step 2 of 4) and how much is left?
 
@@ -189,7 +199,7 @@ Write each section as narrative prose with bolded issue names, not bulleted chec
 
 ### Visual Composition
 
-[Color, type, depth, weight distribution — analyzed as a composition, not a list of items. What's the color story? How does the type scale create hierarchy? Is there one depth strategy or several competing?]
+[Color, type, depth, weight distribution — analyzed as a composition, not a list of items. What's the color story? How does the type scale create hierarchy? Do the depth treatments clarify grouping and layer order?]
 
 ### Interface Composition
 
@@ -222,7 +232,7 @@ Write each section as narrative prose with bolded issue names, not bulleted chec
 
 ## Where this could go next
 
-[What this interface could become. Two or three product directions, first-person and specific. "If I had one more day here, I'd…" Not polish-level suggestions — product-level proposals. Imagine the fuller version: what would this be doing if it fully honored the job it's hired to do?]
+[Optional. Include only when useful product directions fit the requested scope and the evidence. Omit when none add value. Do not manufacture a direction or reopen settled product choices to fill this section.]
 
 [Include file:line for code issues where relevant]
 ```
@@ -280,7 +290,7 @@ If the spec doesn't answer these with specifics, ask.
 
 These decisions shape everything downstream. Surface them early:
 
-- **Depth strategy:** Borders-only, subtle shadows, layered shadows, or surface color shifts? Pick ONE.
+- **Depth strategy:** How should borders, shadows or surface shifts communicate grouping and layering? Mixed treatments can be coherent when they have distinct roles.
 - **Typography:** What typeface fits the feel? Don't default — select.
 - **Color temperature:** Warm, cool, neutral? What colors exist in this product's world?
 - **Information density:** Spacious or dense? What serves the user's task?

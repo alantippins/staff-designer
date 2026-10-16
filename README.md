@@ -8,7 +8,7 @@ npx skills add alantippins/staff-designer
 
 | Skill | Command | What it does |
 | ----- | ------- | ------------ |
-| Staff Designer | `/staff-designer` | Holistic interface critique — 8 principles, Design Score, writerly findings |
+| Staff Designer | `/staff-designer` | Holistic interface critique with 8 principles and evidence-backed prose |
 | Typeset | `/typeset` | Formal typography audit — four-job scoring, code flags, generative directions |
 
 Staff Designer applies typography analysis inline during every critique. Run `/typeset` when you want the full standalone audit with a score table and code-level flags.
@@ -38,7 +38,7 @@ Give it anything. It adapts.
 
 No modes to remember. Just run it against whatever you're working on.
 
-Output opens with a **Design Score**. 8 principles graded 0 to 4, with a total and a band: Ship, Polish, Problems, or Blocked. Scan the score to track across iterations. Read the narrative to understand why.
+Output explains what works, what needs attention, and the evidence behind each finding. Applicable principles guide the critique; Staff Designer does not generate a numeric Design Score or shipping band.
 
 ---
 
@@ -70,7 +70,7 @@ Based on Nielsen's usability heuristics and Laws of UX. These eight are the ones
 
 Different ways of seeing the same interface. Not every lens applies to every screen. The skill uses judgement.
 
-**Visual Composition.** Look at color, typography, depth, and weight as a composition, not a collection of items. Count the distinct colors. List the type sizes. Ask: is there one depth strategy or several competing? The squint test — does importance survive the blur?
+**Visual Composition.** Look at color, typography, depth, and weight as a composition, not a collection of items. Count the distinct colors. List the type sizes. Ask whether the depth treatments serve clear grouping and layer relationships. The squint test — does importance survive the blur?
 
 **Interface Composition.** Where does the eye land first? Is there one clear entry point, or does everything compete for attention? Is the density appropriate for who's using this and how often? Are there dead ends — elements that exist but lead nowhere?
 
@@ -149,17 +149,17 @@ Add `--teach` to include principle explanations with each finding.
 
 Run it. Fix what's worth fixing. Run it again.
 
-The skill will always find something. Design critique is continuous. It won't go quiet on its own and tell you you're done.
+A clean review is valid. Fix findings that matter to the agreed task, verify the affected behavior, and stop when no material concern remains.
 
 Three signals to watch for:
 
-**The Design Score stops moving.** Two or three runs land at the same band, numbers barely shift. That's the plateau. Progress has stopped — you're polishing inside a local maximum.
+**No material finding remains.** The agreed behavior works and the relevant checks support it. Another critique is optional, rather than a prerequisite for shipping.
 
-**Findings shift from diagnostic to generative.** Early runs surface what's broken — silent submits, lost state, bad hierarchy. Later runs shift to what this could become — reimagined flows, product-level proposals. When the diagnostic findings go quiet and "Where this could go next" is the only section producing new material, you've hit the floor. The next move is a redesign, not another polish pass.
+**Only new product directions remain.** Treat those as optional exploration when requested. They do not establish a defect or require a redesign.
 
 **Top Opportunities become taste, not fixes.** "Tighten the type scale" is taste. "Users can't recover from mistakes" is a fix. When you're only getting the former, ship.
 
-This skill is another pair of eyes for your designs. It'll always find something worth naming. Go with your gut when you feel you're ready.
+This skill is another pair of eyes for your designs. Its findings support your judgment; they do not create an endless review obligation.
 
 ---
 

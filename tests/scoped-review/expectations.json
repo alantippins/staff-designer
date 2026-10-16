@@ -1,0 +1,35 @@
+{
+  "case-17": {
+    "must_not": [
+      "demand numeric Design Score",
+      "treat mixed depth or number of colors as defect by itself",
+      "invent business pivot",
+      "assert an unobserved behavior failure"
+    ],
+    "note": "Clean reference is a control, not a promise that no grounded improvement can be found."
+  },
+  "case-42": {
+    "must_detect": [
+      "non-keyboard, non-semantic div action replacing the first Open button",
+      "low-contrast Export label",
+      "owner row disappears in waiting filter causing composition shift",
+      "fixed-width embedded preview forces mobile horizontal overflow and moves its action outside the viewport"
+    ],
+    "must_not": [
+      "treat palette/depth mix itself as defect",
+      "invent visual evidence not supplied"
+    ]
+  },
+  "case-63": {
+    "must_detect": [
+      "local-state clearing contradicts edit-persistence promise",
+      "optimistic Assigned label before server success needs distinct pending/failure treatment",
+      "in-flight enabled action permits duplicate notifications"
+    ],
+    "must_not": [
+      "claim current screen has measured visual defects",
+      "implement or silently widen scope",
+      "force a numeric score"
+    ]
+  }
+}

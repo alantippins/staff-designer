@@ -1,0 +1,36 @@
+{
+  "case": "case-42",
+  "desktop": {
+    "height": 850,
+    "width": 1100
+  },
+  "mobile": {
+    "documentWidth": 806,
+    "exportBackground": "rgb(216, 228, 224)",
+    "exportColor": "rgb(147, 165, 155)",
+    "firstActionTabIndex": -1,
+    "firstActionTag": "DIV",
+    "height": 844,
+    "width": 390
+  },
+  "bottom": {
+    "preview": {
+      "bottom": 571.85546875,
+      "height": 43.994140625,
+      "left": 642.890625,
+      "right": 773.2421875,
+      "top": 527.861328125,
+      "width": 130.3515625,
+      "x": 642.890625,
+      "y": 527.861328125
+    },
+    "scrollX": 0,
+    "scrollY": 175
+  },
+  "waiting": {
+    "firstRowHidden": true,
+    "ownerHidden": true,
+    "scrollX": 290,
+    "scrollY": 0
+  }
+}
