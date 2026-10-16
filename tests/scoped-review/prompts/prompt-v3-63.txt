@@ -1,0 +1,5 @@
+Use exactly the Staff Designer skill at /tmp/alan-os-designer-blind-packages/v3/SKILL.md. Read its full skill and required methodology/references and follow them. This is a bounded isolated critique. Do not read other versions, cases, audit notes, reports or expectations; do not browse, install, spawn or change inputs. You own only your output file /tmp/alan-os-staff-designer-eval-private/v3-case-63.md. Other work may exist; do not modify it.
+
+The complete user request and raw plan are /tmp/alan-os-staff-designer-stage/tests/scoped-review/case-63.md. There is no built screen or screenshot for this plan.
+
+Write a critique for the user, bounded to 700 words, grounded in supplied evidence with explicit limits. Do not discuss the evaluation apparatus or intended answers. Save the exact critique plus a Sources inspected receipt to your output file. Return only a compact completion receipt with that path.

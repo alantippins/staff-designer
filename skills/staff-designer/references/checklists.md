@@ -1,6 +1,6 @@
 # Interface Checklists
 
-Consolidated quality checks. Single source of truth for visual, technical, and accessibility standards.
+Consolidated quality checks. Apply them to the artifact, platform and task. Aesthetic patterns are prompts to inspect the product's intent and user impact, rather than universal requirements. Concrete correctness and applicable accessibility failures still need findings.
 
 Severity: 🔴 Blocker | 🟡 Warning | 🟢 Suggestion
 
@@ -13,12 +13,12 @@ The interface as a composition, not a collection of items.
 ### Color
 
 - 🟡 **Intentional color palette** — Not random hex values; colors belong to a family
-- 🟡 **Color reinforces hierarchy** — Accent for action/emphasis only, not decoration
-- 🟢 **No double-duty colors** — A color means one thing, not "sometimes action, sometimes decoration"
+- 🟡 **Color reinforces hierarchy** — Check whether action, status and decoration have clear roles and appropriate visual weight
+- 🟢 **Color meanings are legible** — Flag ambiguous meanings that mislead, rather than any reuse of a hue
 
 ### Depth
 
-- 🟡 **Intentional depth** — Borders OR shadows OR surface tints OR super thin borders and shadows.
+- 🟡 **Intentional depth** — Borders, shadows and surface tints communicate coherent grouping and layering
 - 🟡 **Elevation communicates hierarchy** — Modal > card > base surface
 - 🟢 **Intentional and consistent border radius** — border radius scale used across the interface
 
@@ -97,7 +97,7 @@ If it fetches data or takes action, it needs states.
 
 ### Text Hierarchy
 
-Build four levels, not two:
+Use the hierarchy levels the content needs. These are possible roles, not a mandatory count:
 
 | Level     | Role                 | Example Use                |
 | --------- | -------------------- | -------------------------- |
@@ -106,20 +106,20 @@ Build four levels, not two:
 | Tertiary  | Metadata             | Timestamps, counts, labels |
 | Muted     | Disabled/placeholder | Inactive states, hints     |
 
-- 🟡 **Four text levels defined** — Not just "text" and "gray text"
+- 🟡 **Useful text hierarchy** — Important content and supporting detail are distinguishable; the number of levels fits the task
 - 🟡 **Levels used consistently** — Same level = same meaning throughout
 - 🟡 **Hierarchy visible without color** — Weight and size create hierarchy, not just color
 
 ### Visual Hierarchy
 
-- 🟡 **Single accent color per view** — One thing is primary
-- 🟡 **Gray for structure, color for meaning** — Status, action, emphasis only
+- 🟡 **Clear color priorities** — Multiple accents can work when their roles and relative emphasis are clear
+- 🟡 **Surfaces support meaning** — Structural and expressive colors support the intended hierarchy
 - 🟡 **Squint test passes** — Blur vision; hierarchy still perceivable
 - 🟢 **Headlines have presence** — Weight + tight tracking
 
 ### Layering & Depth
 
-**Pick ONE depth strategy and commit:**
+**Choose treatments that explain the hierarchy. These approaches may be combined for distinct roles:**
 
 | Strategy             | Feel                 | When to Use                        |
 | -------------------- | -------------------- | ---------------------------------- |
@@ -128,10 +128,10 @@ Build four levels, not two:
 | Layered shadows      | Premium, dimensional | Cards that need presence           |
 | Surface color shifts | Background tints     | Hierarchy without shadows          |
 
-- 🟡 **Single depth strategy** — ONE approach throughout, not mixed.
+- 🟡 **Coherent depth strategy** — Different treatments preserve consistent grouping and layer relationships
 - 🟡 **Subtle elevation shifts** — Lightness changes of a few percentage points, not dramatic jumps
-- 🟡 **Sidebars same bg as canvas** — Subtle border separation, not different colors
-- 🟡 **Inputs darker than surroundings** — Inset feel signals "type here"
+- 🟡 **Sidebar relationship is clear** — Shared or distinct surfaces reflect its role relative to the canvas
+- 🟡 **Inputs are identifiable** — Styling and labels make editable controls clear in the actual theme
 - 🟢 **Dropdowns above parent surface** — One level up in elevation
 
 ---
@@ -151,7 +151,7 @@ Build four levels, not two:
 - 🔴 **`safe-area-inset` on fixed elements** — Respects notches/home indicators
 - 🟡 **Fixed z-index scale** — Documented layers, not arbitrary numbers
 - 🟡 **No layout shift on load** — Content stable as assets load
-- 🟢 **Sidebars same bg as canvas** — Subtle border separation, not color
+- 🟢 **Sidebar separation is purposeful** — Borders or surface changes explain its relationship to the content
 
 ---
 
@@ -187,37 +187,37 @@ Touch targets and mobile-specific patterns. Applies when viewport < 768px or tou
 
 ## Red Flags
 
-Presence of these = immediate 🟡 or 🔴.
+Use these as inspection prompts. For visual and craft choices, explain the observed failure of hierarchy, usability, or fit with the approved brief before assigning severity. A style choice alone is not a warning. Keep structural and accessibility defects actionable, with severity based on their impact.
 
 ### Visual
 
 - 🟡 Harsh borders demanding attention
 - 🟡 Dramatic surface lightness jumps
-- 🟡 Pure white cards on colored backgrounds
+- 🟡 White cards on colored backgrounds obscure grouping or create distracting contrast
 - 🟡 Decorative gradients (unless intentional brand)
-- 🟡 Multiple hues across surfaces (keep hue, shift lightness)
+- 🟡 Surface colors with unclear roles or competing emphasis
 - 🟡 Large radius on small elements
 - 🟡 Glow effects as primary affordances
-- 🟡 Different colors for sidebar vs canvas
+- 🟡 Sidebar treatment obscures grouping or competes with the main task
 - 🟢 Emoji instead of consistent icon set
 
 ### Structural
 
 - 🔴 Missing interaction states
 - 🔴 Missing data states (loading/empty/error)
-- 🟡 Mixed depth strategies
+- 🟡 Depth treatments contradict grouping or layer order
 - 🟡 Dramatic drop shadows
 - 🟡 Inconsistent spacing
 - 🟡 Multiple accent colors competing
-- 🟡 Only two text hierarchy levels
+- 🟡 Text hierarchy fails to distinguish the roles the content needs
 
 ### Craft
 
 - 🟡 Hardcoded hex colors instead of tokens
-- 🟡 Default fonts never changed
+- 🟡 Font choice impairs legibility, hierarchy, or fit with the approved brief
 - 🟡 Arbitrary spacing values with no scale
 - 🟡 Missing polish — no hover, focus, or transition states
-- 🟢 Token names that could belong to any project
+- 🟢 Token meanings are unclear to the people maintaining the product
 
 ---
 
@@ -279,18 +279,18 @@ If no → hierarchy relies on color alone. 🟡
 
 ### Signature Test
 
-> Can you identify 5 specific elements unique to this product's interface?
+> Do the choices fit this product's purpose, content and visual language?
 
-If no → generic. 🟢 (not broken, but no craft)
+Assess observable fit. There is no required number of unique visual elements.
 
 ### Spacing Test
 
 > Is spacing consistent throughout? Same gaps for same relationships?
 
-If no → clearest sign of no design system. 🟡
+Check whether the different gaps serve different relationships before treating them as inconsistency.
 
 ### Token Test
 
 > Do CSS variable names reflect this product's world or generic templates?
 
-If generic → copy-paste without intention. 🟢
+Generic names alone do not establish an unexamined design. Inspect their roles and actual use.

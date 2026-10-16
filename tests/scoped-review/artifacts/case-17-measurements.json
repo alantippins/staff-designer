@@ -1,0 +1,32 @@
+{
+  "case": "case-17",
+  "desktop": {
+    "height": 850,
+    "width": 1100
+  },
+  "mobile": {
+    "documentWidth": 390,
+    "height": 844,
+    "width": 390
+  },
+  "bottom": {
+    "preview": {
+      "bottom": 718.5546875,
+      "height": 43.994140625,
+      "left": 53.2421875,
+      "right": 183.59375,
+      "top": 674.560546875,
+      "width": 130.3515625,
+      "x": 53.2421875,
+      "y": 674.560546875
+    },
+    "scrollX": 0,
+    "scrollY": 228.75
+  },
+  "waiting": {
+    "firstRowHidden": true,
+    "ownerHidden": false,
+    "scrollX": 0,
+    "scrollY": 0
+  }
+}
