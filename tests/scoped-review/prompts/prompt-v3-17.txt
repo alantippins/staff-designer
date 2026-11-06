@@ -1,0 +1,5 @@
+Use exactly the Staff Designer skill at /tmp/alan-os-designer-blind-packages/v3/SKILL.md. Read its full skill and required methodology/references and follow them. This is a bounded isolated critique. Do not read other versions, cases, audit notes, reports or expectations; do not browse, install, spawn or change inputs. You own only your output file /tmp/alan-os-staff-designer-eval-private/v3-case-17.md. Other work may exist; do not modify it.
+
+Read the user request at /tmp/alan-os-staff-designer-stage/tests/scoped-review/artifact-request.txt and raw source case-17.html. Inspect the supplied images using view_image: artifacts/case-17-desktop.jpg, case-17-mobile.jpg, case-17-mobile-bottom.jpg, and case-17-mobile-waiting.jpg, all under that fixture directory. artifacts/case-17-measurements.json contains raw browser measurements.
+
+Write a critique for the user, bounded to 700 words, grounded in supplied evidence with explicit limits. Do not discuss the evaluation apparatus or intended answers. Save the exact critique plus a Sources inspected receipt to your output file. Return only a compact completion receipt with that path.

@@ -1,0 +1,31 @@
+# Staff engineer review — staged Staff Designer guidance
+
+**Verdict: REVISE before activation.** The behavioral evidence supports a narrow claim: on the three corrected test inputs, the candidate kept the baseline's defect coverage and did not show the targeted aesthetic or scoring regressions. Two live instructions still contradict the intended move from fixed aesthetic rules to evidence-based critique. The fixes are local, but the tested hashes will change and need a new review receipt.
+
+## Findings
+
+1. **P1 — The full critique template still makes mixed depth the question.** [`critique.md:202`](/Users/alan/Desktop/apps/staff-designer/skills/staff-designer/critique.md:202) asks, “Is there one depth strategy or several competing?” Every full artifact critique sees this output template. It conflicts with the same file's revised direction at [`critique.md:105`](/Users/alan/Desktop/apps/staff-designer/skills/staff-designer/critique.md:105) and the revised checklist at [`checklists.md:122`](/Users/alan/Desktop/apps/staff-designer/skills/staff-designer/references/checklists.md:122), which allow distinct border, shadow and tint roles. The six runs show the model handled the supplied mixed-depth example correctly; they do not make the surviving instruction consistent. Replace the template question with one about whether the treatments clarify grouping and layer order.
+
+2. **P1 — The checklist still orders immediate aesthetic warnings without checking intent or impact.** [`checklists.md:1`](/Users/alan/Desktop/apps/staff-designer/skills/staff-designer/references/checklists.md:1) now says aesthetic patterns are prompts to inspect. Yet [`checklists.md:193`](/Users/alan/Desktop/apps/staff-designer/skills/staff-designer/references/checklists.md:193) says their presence means an immediate warning or blocker, including pure white cards on colored backgrounds at line 196 and an unchanged default font at line 217. Those can be deliberate, functional choices. This is an active loaded consumer of the new rule, and the test cases do not cover either trigger in a way that would falsify it. Change the header and those categorical aesthetic rows to require an observable failure of hierarchy, usability, or product fit. Keep the structural and accessibility defect rows intact.
+
+3. **P2 — One typography reference still describes a scored Staff Designer critique.** [`typography.md:27`](/Users/alan/Desktop/apps/staff-designer/skills/staff-designer/references/typography.md:27) says hidden work “does not score” and belongs outside the “scored critique,” while [`interaction.md:239`](/Users/alan/Desktop/apps/staff-designer/skills/staff-designer/references/interaction.md:239) now prohibits a numeric Design Score or shipping band. The visibility rule is valuable; update only its scoring terminology. The six valid outputs emitted no numeric score, so this is a consistency cleanup rather than an observed scoring regression.
+
+## Evidence and limits
+
+- I inspected the raw diff against `06d9563f8a1181ffa77dcbc687a3af20352256b8`, including untracked `tests/scoped-review/`, and compared the vault README against its saved prior copy. The source patch touches `critique.md`, three loaded references and the matching repository README. The vault README has only two source-location corrections. `SKILL.md`, Typeset, the installer and installed package are outside this patch.
+- I read all six valid raw critiques, the exact prompts, the clean/defect source and measurements, the assignment plan, the rejected first clean control, and the test report. I visually inspected the supplied clean and defect mobile captures. The first control review found real incomplete behavior, so excluding it from the false-positive comparison is justified. The corrected clean control and both defect cases were compared across versions. Both versions detected all four planted design defects and all three plan risks; neither generated a numeric score or an unrequested pivot. The candidate gave a useful source-grounded explanation of the disappearing owner row and reserved status space. This establishes no observed regression here, not general superiority.
+- Candidate and blind-package SHA-256 values match the staged files below. `git diff --check` passed. The recorded model, run count and concurrency come from the coordinator's report and prompts; raw prose alone cannot authenticate those execution details. This is one generative result per version per case on synthetic inputs. The reviewers did not independently operate the browser or test assistive technology, actual CSV delivery, all palettes or real project work.
+- The replay record has exact prompts, fixtures, measurements, images, a baseline archive and hashes. The candidate package currently lives in an uncommitted checkout and the prompts reference temporary blind-package paths. Preserve the final candidate bytes in a commit or archive, record its new hashes, and reconstruct those paths for a later replay. Today's outputs are evidence for the hashes below only. After fixing the P1 lines, check the final loaded text and rerun at least the clean mixed-depth control and one defect control before a final gate. Do not activate the old tested snapshot by treating this review as approval.
+
+### Reviewed SHA-256 snapshot
+
+| Source | SHA-256 |
+|---|---|
+| `skills/staff-designer/SKILL.md` | `4525c3daa38760e454aa7aa9e8f5918112f6137c0d38ea01ffd8072b126fd887` |
+| `skills/staff-designer/critique.md` | `2f348f31203421f2bc3c9aa59a9f52b3ea5fb164e491adbd7d1eaebbaada8fc0` |
+| `skills/staff-designer/references/checklists.md` | `48657aedd6a2c2f5fd2fd84fa1d5407f691e5a8b9ad341d58a98aebd0ab66544` |
+| `skills/staff-designer/references/interaction.md` | `7a8ad9e0212953dfa484a51f68208a99dd632ecc21d91f136ddc06ee28afb06f` |
+| `skills/staff-designer/references/typography.md` | `c64625c0f4ca15c659c27eb3b87a6008d1d97bc9e36395149265c2a7600562b9` |
+| `README.md` | `1b37836e8deaab62f7818da85c8b334deba083d8c5d53f61d6dc83a84b9b853b` |
+
+The source's accessibility, motion and mobile checklist sections were not removed by the patch. The defect run still caught the non-keyboard action and low contrast, so those critical checks survived in the observed behavior.
