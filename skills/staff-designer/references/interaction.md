@@ -166,10 +166,10 @@ Defaults don't announce themselves. They disguise themselves as infrastructure �
 
 | Area | The Trap | Reality |
 |------|----------|---------|
-| **Typography** | "Pick something readable, move on" | Typography is the foundation of interface design. It carries the majority of information. When it's wrong, the whole interface reads as wrong regardless of execution quality elsewhere — it's the highest-leverage fix. Assess: font fit (does the typeface match the product's register?), hierarchy (four distinct levels without color?), signal (does weight track semantic importance?). For deep analysis, delegate to `/typeset`. |
+| **Typography** | "Pick something readable, move on" | Typography is the foundation of interface design. It carries the majority of information. When it's wrong, the whole interface reads as wrong regardless of execution quality elsewhere — it's the highest-leverage fix. Assess: font fit (does the typeface match the product's register?), hierarchy (are the needed content roles distinct without color?), signal (does weight track semantic importance?). For deep analysis, delegate to `/typeset`. |
 | **Navigation** | "Build the sidebar, get to real work" | Navigation IS your product. Where you are, where you can go, what matters most. A screen floating in space is a component demo, not software. |
 | **Data display** | "You have numbers, show numbers" | A number on screen is not design. What does it mean? What will they do with it? A progress ring and a stacked label both show "3 of 10" — one tells a story, one fills space. |
-| **Token names** | "Implementation detail" | Your CSS variables are design decisions. `--ink` and `--parchment` evoke a world. `--gray-700` and `--surface-2` evoke a template. |
+| **Token names** | "Implementation detail" | Check what tokens mean and how they are used. Generic or expressive names can both support an intentional product. |
 
 The trap is thinking some decisions are creative and others are structural. Everything is design. The moment you stop asking "why this?" is when defaults take over.
 
@@ -180,7 +180,7 @@ The trap is thinking some decisions are creative and others are structural. Ever
 | Typography intentional | Fonts selected for purpose, not defaulted |
 | Color coherent | Defined palette with tokens, not random hex values |
 | Spacing systematic | Consistent scale (4px/8px), not arbitrary numbers |
-| Depth strategy consistent | ONE approach: borders-only, subtle shadows, layered, or surface shifts |
+| Depth strategy coherent | Borders, shadows and surface shifts serve clear, consistent grouping and layering roles |
 | Details finished | Hover states, focus rings, transitions polished |
 
 ### Quality Tests
@@ -189,11 +189,11 @@ Run these during review:
 
 **Swap Test**
 > Replace the typeface and colors with generic alternatives. Does it feel different?
-> If no → you defaulted. The design has no voice.
+> Assess whether the choices fit the intended experience; a familiar typeface or palette can be deliberate.
 
 **Token Test**
 > Are values hardcoded or using a system?
-> Hardcoded hex colors and pixel values = no design system.
+> Inspect whether the actual values and roles form a coherent system. Tokenization alone does not prove design quality.
 
 ### Severity
 
@@ -234,34 +234,9 @@ Memory is unreliable. When users have to remember commands, navigate without lan
 
 ---
 
-## Scoring
+## Reporting principles
 
-Each applicable principle scores 0-4. Totals roll up into the Design Score at the top of the critique output.
-
-| Score | What it means |
-|-------|---------------|
-| **0** | Broken. Principle isn't considered. Users get hurt. Ship blocker. |
-| **1** | At risk. Principle half-addressed with serious gaps. Users will bounce. |
-| **2** | Uneven. Principle honored in places, missed in others. Noticeable pain. |
-| **3** | Solid. Principle mostly held. Minor gaps worth noting, not urgent. |
-| **4** | Elevated. Principle is a strength — genuine craft, not just compliance. Rare. |
-
-**Be honest.** A 4 means *genuinely exceptional.* Most production interfaces score principles in the 2-3 range. A total above 87% should be rare.
-
-**Mark N/A** where a principle doesn't apply. A static marketing page doesn't need Persistence. A one-way flow doesn't need Escape. Skip rather than force a score.
-
-### Bands
-
-| Total (of applicable × 4) | Band | Meaning |
-|---|---|---|
-| ≥ 87% | **Ship** | Principles in place, craft is present |
-| 68-86% | **Polish** | Shippable but specific gaps worth addressing |
-| 44-67% | **Problems** | Structural issues hurting users; rework needed |
-| < 44% | **Blocked** | Don't ship; rethink before iterating |
-
-### A note on precision
-
-Scores are interpretive, not measured. Two runs of the same interface may produce slightly different scores. Use them for trend-across-iterations within a team, not as absolute benchmarks between products. The narrative finding is the substance; the score is the handle.
+Use applicable principles to explain observable findings and what works. Skip principles with no useful signal. Report the evidence, impact and uncertainty in prose; do not manufacture a numeric Design Score, percentage or shipping band.
 
 ---
 

@@ -8,11 +8,11 @@ Typography is the foundation of interface design. It carries the majority of inf
 
 Typography has four jobs. Every finding traces back to one.
 
-**Hierarchy.** Can you identify four distinct levels — primary, secondary, tertiary, muted — without relying on color? Count the distinct sizes. Count the distinct weights. If everything lands at one or two levels, there's no scale. If there are six levels that look nearly identical, there's no hierarchy either.
+**Hierarchy.** Can the reader distinguish the content roles this task needs without relying on color alone? Primary, secondary, tertiary and muted are possible roles, not a required four-level scale. Check whether size, weight and spacing establish the intended relationships; either a short or a long scale can work.
 
 **Rhythm.** Does the type scale have internal logic? Steps should have a mathematical relationship — a ratio or a defined set — not arbitrary jumps. Line-height should be consistent within context: tighter for headings, more open for body, tightest for labels. Spacing between text blocks should feel like it comes from the same system as the type itself.
 
-Rhythm scores the spacing *inside type groups* — heading → description, label → value, paragraph → paragraph. Spacing between components, cards, or sections is layout, not typography. Flag it if it affects the read, but don't score Rhythm down for it.
+Rhythm assesses the spacing *inside type groups* — heading → description, label → value, paragraph → paragraph. Spacing between components, cards, or sections is layout, not typography. Flag it if it affects the read, but don't fault Rhythm for it.
 
 **Measure.** Line length determines readability. 65–75 characters is the target for body copy. Shorter feels cramped. Longer forces the eye to track across too much ground. Headings can run shorter. Labels can run longer. The issue is when body copy runs wall-to-wall with no constraint.
 
@@ -24,7 +24,7 @@ Rhythm scores the spacing *inside type groups* — heading → description, labe
 
 Before assessing typography, establish the context. This sets the bar — a data tool tolerates tighter measure and smaller type than a content app.
 
-**Verify user-visibility first.** Before anything enters the audit, confirm every screen and component you're about to review is actually reachable by a user in the current build. Feature-flagged, route-gated, permission-gated, or unreleased code does not score and does not appear in findings. If it's worth mentioning at all, it belongs in Code Flags — not in the scored critique.
+**Verify user-visibility first.** Before anything enters the audit, confirm every screen and component you're about to review is actually reachable by a user in the current build. Feature-flagged, route-gated, permission-gated, or unreleased code does not enter the assessment or findings. If it's worth mentioning at all, it belongs in Code Flags, outside the user-visible critique.
 
 **Interface type:**
 
@@ -67,6 +67,6 @@ State the counts. "6 sizes, 2 weights, 4 colors" gives you the raw material for 
 
 Run each of the four jobs. For each finding: what you see, why it matters, what it could be instead. Write findings as a designer, not a code reviewer.
 
-**Screenshot input** — visual hierarchy only. Does the squint test pass? (Blur your vision — can you still identify 4 levels?) Is the measure constrained? Does weight track importance?
+**Screenshot input**: assess the visible hierarchy. Does the squint test preserve the important content relationships? Is the measure appropriate? Does weight track importance?
 
 **Code input** — mentally render first, then read code for implementation flags only. Keep flags separate from findings. A raw `<p>` that renders identically to a `<Text>` component is a code flag, not a hierarchy failure. Token violations with no visible difference are code flags, not signal failures. If the user can't see it, it's not a finding.
