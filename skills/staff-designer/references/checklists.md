@@ -18,7 +18,7 @@ The interface as a composition, not a collection of items.
 
 ### Depth
 
-- 🟡 **Intentional depth** — Borders, shadows and surface tints communicate coherent grouping and layering
+- 🟡 **Intentional depth** — Start from one approach: borders, shadows, or surface tints. Add a second only when it marks a different layer, like a floating popover over bordered panels
 - 🟡 **Elevation communicates hierarchy** — Modal > card > base surface
 - 🟢 **Intentional and consistent border radius** — border radius scale used across the interface
 
@@ -113,7 +113,7 @@ Use the hierarchy levels the content needs. These are possible roles, not a mand
 ### Visual Hierarchy
 
 - 🟡 **Clear color priorities** — Multiple accents can work when their roles and relative emphasis are clear
-- 🟡 **Surfaces support meaning** — Structural and expressive colors support the intended hierarchy
+- 🟡 **Gray for structure, color for meaning** — The default. Expressive surface color works when it's part of the brand and doesn't compete with status or actions
 - 🟡 **Squint test passes** — Blur vision; hierarchy still perceivable
 - 🟢 **Headlines have presence** — Weight + tight tracking
 
@@ -128,9 +128,9 @@ Use the hierarchy levels the content needs. These are possible roles, not a mand
 | Layered shadows      | Premium, dimensional | Cards that need presence           |
 | Surface color shifts | Background tints     | Hierarchy without shadows          |
 
-- 🟡 **Coherent depth strategy** — Different treatments preserve consistent grouping and layer relationships
+- 🟡 **One treatment per layer** — The same kind of element gets the same depth treatment everywhere
 - 🟡 **Subtle elevation shifts** — Lightness changes of a few percentage points, not dramatic jumps
-- 🟡 **Sidebar relationship is clear** — Shared or distinct surfaces reflect its role relative to the canvas
+- 🟡 **Sidebar shares the canvas background by default** — Separated by a subtle border. A distinct surface fits when the sidebar is its own layer, like an overlay or drawer
 - 🟡 **Inputs are identifiable** — Styling and labels make editable controls clear in the actual theme
 - 🟢 **Dropdowns above parent surface** — One level up in elevation
 
@@ -151,7 +151,7 @@ Use the hierarchy levels the content needs. These are possible roles, not a mand
 - 🔴 **`safe-area-inset` on fixed elements** — Respects notches/home indicators
 - 🟡 **Fixed z-index scale** — Documented layers, not arbitrary numbers
 - 🟡 **No layout shift on load** — Content stable as assets load
-- 🟢 **Sidebar separation is purposeful** — Borders or surface changes explain its relationship to the content
+- 🟢 **Sidebar shares the canvas background by default** — Border separation; a distinct surface when it's an overlay or drawer
 
 ---
 
@@ -193,31 +193,31 @@ Use these as inspection prompts. For visual and craft choices, explain the obser
 
 - 🟡 Harsh borders demanding attention
 - 🟡 Dramatic surface lightness jumps
-- 🟡 White cards on colored backgrounds obscure grouping or create distracting contrast
+- 🟡 Pure white cards on colored backgrounds
 - 🟡 Decorative gradients (unless intentional brand)
-- 🟡 Surface colors with unclear roles or competing emphasis
+- 🟡 Multiple hues across surfaces
 - 🟡 Large radius on small elements
 - 🟡 Glow effects as primary affordances
-- 🟡 Sidebar treatment obscures grouping or competes with the main task
+- 🟡 Sidebar a different color from the canvas
 - 🟢 Emoji instead of consistent icon set
 
 ### Structural
 
 - 🔴 Missing interaction states
 - 🔴 Missing data states (loading/empty/error)
-- 🟡 Depth treatments contradict grouping or layer order
+- 🟡 Mixed depth treatments on the same layer
 - 🟡 Dramatic drop shadows
 - 🟡 Inconsistent spacing
 - 🟡 Multiple accent colors competing
-- 🟡 Text hierarchy fails to distinguish the roles the content needs
+- 🟡 Only two text levels on a content-heavy screen
 
 ### Craft
 
 - 🟡 Hardcoded hex colors instead of tokens
-- 🟡 Font choice impairs legibility, hierarchy, or fit with the approved brief
+- 🟡 Default fonts with no sign they were chosen
 - 🟡 Arbitrary spacing values with no scale
 - 🟡 Missing polish — no hover, focus, or transition states
-- 🟢 Token meanings are unclear to the people maintaining the product
+- 🟢 Token names that could belong to any project
 
 ---
 
@@ -279,9 +279,9 @@ If no → hierarchy relies on color alone. 🟡
 
 ### Signature Test
 
-> Do the choices fit this product's purpose, content and visual language?
+> Can you name a few choices that belong to this product rather than a template?
 
-Assess observable fit. There is no required number of unique visual elements.
+If none stand out, note it as 🟢. Familiar choices are fine when they're deliberate; there's no required count.
 
 ### Spacing Test
 
